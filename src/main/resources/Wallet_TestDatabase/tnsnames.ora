@@ -1,0 +1,30 @@
+db201909231033_high = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_db201909231033_high.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+db201909231033_low = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_db201909231033_low.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+db201909231033_medium = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_db201909231033_medium.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+db201909231033_tp = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_db201909231033_tp.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+db201909231033_tpurgent = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_db201909231033_tpurgent.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+testdatabase_high = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_testdatabase_high.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+testdatabase_low = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_testdatabase_low.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+testdatabase_medium = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_testdatabase_medium.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+testdatabase_tp = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_testdatabase_tp.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+
+testdatabase_tpurgent = (description= (address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=nku23rt5jinkrus_testdatabase_tpurgent.atp.oraclecloud.com))(security=(ssl_server_cert_dn=
+        "CN=adb.sa-saopaulo-1.oraclecloud.com,OU=Oracle ADB SAOPAULO,O=Oracle Corporation,L=Redwood City,ST=California,C=US"))   )
+

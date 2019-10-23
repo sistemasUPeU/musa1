@@ -21,7 +21,7 @@ public class PersonaController {
 	@Autowired
 	private PersonaService personaService;
 	
-	@GetMapping
+	@GetMapping("/")
 	public Map<String, Object> get() {
 		return personaService.readAll();
 	}

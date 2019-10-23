@@ -21,7 +21,7 @@ public class Tipo_documentoController {
 	@Autowired
 	private Tipo_documentoService tipo_documentoService;
 	
-	@GetMapping
+	@GetMapping("/")
 	public Map<String, Object> get() {
 		return tipo_documentoService.readAll();
 	}

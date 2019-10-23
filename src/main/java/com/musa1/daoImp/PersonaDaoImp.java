@@ -23,7 +23,7 @@ public class PersonaDaoImp implements PersonaDao {
 	@Override
 	public int create(Persona persona) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call SP_ADD_PERSONA(?)",persona.getNombre_persona(),persona.getApellido_paterno(),persona.getApellido_materno(),persona.getNro_documento(),persona.getCelular(),persona.getId_tipo_documento());
+		return jdbcTemplate.update("call pkg_crud_persona.sp_add_persona(?,?,?,?,?,?)",persona.getNombre_persona(),persona.getApellido_paterno(),persona.getApellido_materno(),persona.getNro_documento(),persona.getCelular(),persona.getId_tipo_documento());
 	}
 	@Override
 	public int edit(Persona persona) {

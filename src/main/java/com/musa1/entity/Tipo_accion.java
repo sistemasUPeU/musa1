@@ -3,9 +3,9 @@ package com.musa1.entity;
 public class Tipo_accion {
 	private int id_tipo_accion;
 	private String tipo_accion;
-	private int estado;
+	private String estado;
 
-	public Tipo_accion(int id_tipo_accion, String tipo_accion, int estado) {
+	public Tipo_accion(int id_tipo_accion, String tipo_accion, String estado) {
 		super();
 		this.id_tipo_accion = id_tipo_accion;
 		this.tipo_accion = tipo_accion;
@@ -23,10 +23,10 @@ public class Tipo_accion {
 	public void setTipo_accion(String tipo_accion) {
 		this.tipo_accion = tipo_accion;
 	}
-	public int getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(int estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 	

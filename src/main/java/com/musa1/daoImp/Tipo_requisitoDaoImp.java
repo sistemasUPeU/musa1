@@ -56,7 +56,7 @@ public class Tipo_requisitoDaoImp implements Tipo_requisitoDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_TIPO_DOCUMENTO").withCatalogName("pkg_crud_tipo_requisito")
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_TIPO_REQUISITO").withCatalogName("pkg_crud_tipo_requisito")
 				.declareParameters(new SqlOutParameter("tipo_req", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

@@ -3,6 +3,7 @@ package com.musa1.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Curso_conductor;
 import com.musa1.service.Curso_conductorService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/curso_conductor")
 public class Curso_conductorController {
@@ -34,7 +36,7 @@ public class Curso_conductorController {
 	}
 	@PutMapping("/{id}")
 	public int update(@RequestBody Curso_conductor cur, @PathVariable int id) {
-		cur.setId_curso_conducto(id);
+		cur.setId_curso_conductor(id);
 		return curso_conductorService.update(cur);
 	}
 }

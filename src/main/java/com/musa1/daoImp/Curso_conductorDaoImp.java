@@ -33,7 +33,7 @@ public class Curso_conductorDaoImp implements Curso_conductorDao {
 	@Override
 	public int update(Curso_conductor curso_conductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?,?)",curso_conductor.getId_curso_conducto(),curso_conductor.getEstado(),curso_conductor.getCarnet_c(),curso_conductor.getF_caducidad(),curso_conductor.getF_emision());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?,?)",curso_conductor.getId_curso_conductor(),curso_conductor.getEstado(),curso_conductor.getCarnet_c(),curso_conductor.getF_caducidad(),curso_conductor.getF_emision());
 	}
 
 	@Override

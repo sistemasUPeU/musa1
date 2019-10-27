@@ -1,7 +1,7 @@
 package com.musa1.entity;
 
 public class Curso_conductor {
-	int id_curso_conducto;
+	int id_curso_conductor;
 	String f_inicio;
 	String f_fin;
 	String estado;
@@ -11,10 +11,10 @@ public class Curso_conductor {
 	int id_curso;
 	int id_persona;
 	
-	public Curso_conductor(int id_curso_conducto, String f_inicio, String f_fin, String estado, String carnet_c,
+	public Curso_conductor(int id_curso_conductor, String f_inicio, String f_fin, String estado, String carnet_c,
 			String f_caducidad, String f_emision, int id_curso, int id_persona) {
 		super();
-		this.id_curso_conducto = id_curso_conducto;
+		this.id_curso_conductor = id_curso_conductor;
 		this.f_inicio = f_inicio;
 		this.f_fin = f_fin;
 		this.estado = estado;
@@ -25,12 +25,12 @@ public class Curso_conductor {
 		this.id_persona = id_persona;
 	}
 
-	public int getId_curso_conducto() {
-		return id_curso_conducto;
+	public int getId_curso_conductor() {
+		return id_curso_conductor;
 	}
 
-	public void setId_curso_conducto(int id_curso_conducto) {
-		this.id_curso_conducto = id_curso_conducto;
+	public void setId_curso_conductor(int id_curso_conductor) {
+		this.id_curso_conductor = id_curso_conductor;
 	}
 
 	public String getF_inicio() {

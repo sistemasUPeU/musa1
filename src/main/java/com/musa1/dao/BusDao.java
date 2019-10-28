@@ -9,6 +9,6 @@ public interface BusDao {
 	public int create(Bus b);
 	public int update(Bus b);
 	public int delete(int id);
-	public Bus read(int id);
-	List<Map<String, Object>> readAll();
+	Map<String, Object> read(int id);
+	Map<String, Object> readAll();
 }

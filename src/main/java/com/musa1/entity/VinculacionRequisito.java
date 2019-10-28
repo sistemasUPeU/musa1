@@ -5,8 +5,8 @@ import java.util.Date;
 public class VinculacionRequisito {
 	private int id_vinculacion_requisito;
 	private String url;
-	private int estado;
-	private Date fecha_vencimiento_doc;
+	private String estado;
+	private String fecha_vencimiento_doc;
 	private int id_requisito;
 	private int id_vinculacion;
 	private int id_curso_conductor;
@@ -14,7 +14,7 @@ public class VinculacionRequisito {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public VinculacionRequisito(int id_vinculacion_requisito, String url, int estado, Date fecha_vencimiento_doc,
+	public VinculacionRequisito(int id_vinculacion_requisito, String url, String estado, String fecha_vencimiento_doc,
 			int id_requisito, int id_vinculacion, int id_curso_conductor) {
 		super();
 		this.id_vinculacion_requisito = id_vinculacion_requisito;
@@ -37,16 +37,16 @@ public class VinculacionRequisito {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public int getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(int estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public Date getFecha_vencimiento_doc() {
+	public String getFecha_vencimiento_doc() {
 		return fecha_vencimiento_doc;
 	}
-	public void setFecha_vencimiento_doc(Date fecha_vencimiento_doc) {
+	public void setFecha_vencimiento_doc(String fecha_vencimiento_doc) {
 		this.fecha_vencimiento_doc = fecha_vencimiento_doc;
 	}
 	public int getId_requisito() {

@@ -4,20 +4,21 @@ public class Requisito {
 	private int id_requisito;
 	private String nombre_requisito;
 	private int estado;
-	private int obligatorio;
 	private int id_tipo_requisito;
+	private int obligatorio;
 	public Requisito() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Requisito(int id_requisito, String nombre_requisito, int estado, int obligatorio, int id_tipo_requisito) {
+	public Requisito(int id_requisito, String nombre_requisito, int estado, int id_tipo_requisito, int obligatorio) {
 		super();
 		this.id_requisito = id_requisito;
 		this.nombre_requisito = nombre_requisito;
 		this.estado = estado;
-		this.obligatorio = obligatorio;
 		this.id_tipo_requisito = id_tipo_requisito;
+		this.obligatorio = obligatorio;
 	}
+
 	public int getId_requisito() {
 		return id_requisito;
 	}

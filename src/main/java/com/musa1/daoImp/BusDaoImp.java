@@ -18,6 +18,7 @@ import com.musa1.entity.Bus;
 
 import oracle.jdbc.OracleTypes;
 @Repository
+
 public class BusDaoImp implements BusDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

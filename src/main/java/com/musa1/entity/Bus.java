@@ -1,7 +1,7 @@
 package com.musa1.entity;
 
 public class Bus {
-	int idbus;
+	int id_bus;
 	int id_persona_propietario;
 	String marca;
 	String placa;
@@ -17,10 +17,10 @@ public class Bus {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Bus(int idbus, int id_persona_propietario, String marca, String placa, String descripcion, String padron,
+	public Bus(int id_bus, int id_persona_propietario, String marca, String placa, String descripcion, String padron,
 			String estado, String modelo, int nro_motor, String año_fabricacion, String nro_serie, int nro_asientos) {
 		super();
-		this.idbus = idbus;
+		this.id_bus = id_bus;
 		this.id_persona_propietario = id_persona_propietario;
 		this.marca = marca;
 		this.placa = placa;
@@ -33,11 +33,11 @@ public class Bus {
 		this.nro_serie = nro_serie;
 		this.nro_asientos = nro_asientos;
 	}
-	public int getIdbus() {
-		return idbus;
+	public int getId_bus() {
+		return id_bus;
 	}
-	public void setIdbus(int idbus) {
-		this.idbus = idbus;
+	public void setId_bus(int id_bus) {
+		this.id_bus = id_bus;
 	}
 	public int getId_persona_propietario() {
 		return id_persona_propietario;

@@ -32,9 +32,9 @@ public class BusServiceImp implements BusService{
 	}
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> read(String placa) {
 		// TODO Auto-generated method stub
-		return busDao.read(id);
+		return busDao.read(placa);
 	}
 
 	@Override

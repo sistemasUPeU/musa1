@@ -36,9 +36,9 @@ public class BusController {
 		return busService.delete(id);
 	}
 	
-	@GetMapping("/{id}")
-	public Map<String, Object> read(@PathVariable int id){
-		return busService.read(id);
+	@GetMapping("/{placa}")
+	public Map<String, Object> read(@PathVariable String placa){
+		return busService.read(placa);
 	}
 	
 	@PutMapping("/{id}")

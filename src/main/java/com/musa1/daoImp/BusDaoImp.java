@@ -44,20 +44,20 @@ public class BusDaoImp implements BusDao{
 	}
 
 	@Override
-	public Map<String, Object> read(int id) {
+	public Map<String, Object> read(String placa) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withProcedureName("SP_READ_BUS").withCatalogName("pkg_crud_bus")
 				.declareParameters(new SqlOutParameter("bus",OracleTypes
-						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("plac",Types.INTEGER));
-				SqlParameterSource in = new MapSqlParameterSource().addValue("plac", id);
+						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("plac",Types.VARCHAR));
+				SqlParameterSource in = new MapSqlParameterSource().addValue("plac", placa);
 		return simpleJdbcCall.execute(in);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_BUS").withCatalogName("pkg_crud_bus")
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READADLL_BUS").withCatalogName("pkg_crud_bus")
 				.declareParameters(new SqlOutParameter("b", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

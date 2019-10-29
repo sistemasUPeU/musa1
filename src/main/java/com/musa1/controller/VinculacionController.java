@@ -46,16 +46,16 @@ public class VinculacionController {
 	
 	@PostMapping("/vinculacion-add")
 	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
-		int idv = (int)vinculacionService.crearVinculacion(v).get("idv");
+		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
 		return idv;
 	}
 	@PostMapping("/{idv}")
-	public int RegistrarVinculacionRequisito (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
+	public int RegistrarVinculacionRequisitoBus (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
 		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 	
 	@GetMapping("/listar")
-	public Map<String, Object> ListarVinculacion() {
+	public Map<String, Object> ListarVistaVinculacionBus() {
 		return vinculacionService.listarVistaVinculacionBus();
 	}
 	

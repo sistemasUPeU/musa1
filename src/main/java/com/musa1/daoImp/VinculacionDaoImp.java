@@ -26,7 +26,7 @@ public class VinculacionDaoImp implements VinculacionDao{
 	private SimpleJdbcCall call;
 	
 	@Override
-	public Map<String, Object> crearVinculacion(Vinculacion e) {
+	public Map<String, Object> crearVinculacionBus(Vinculacion e) {
 		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_INSERT_VC_BUS").withCatalogName("PKG_CRUD_VINCULACION_BUS")
 				.declareParameters(new SqlParameter("f_e", Types.VARCHAR), new SqlParameter("f_t", Types.VARCHAR), new SqlParameter("bus", Types.INTEGER), new SqlOutParameter("idv", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("f_e", e.getF_emision()).addValue("f_t", e.getF_termino()).addValue("bus", e.getId_bus());

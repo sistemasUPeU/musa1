@@ -15,8 +15,8 @@ public class VinculacionServiceImp implements VinculacionService{
 	@Autowired
 	private VinculacionDao dao;
 	@Override
-	public Map<String, Object> crearVinculacion(Vinculacion e) {
-		return dao.crearVinculacion(e);
+	public Map<String, Object> crearVinculacionBus(Vinculacion e) {
+		return dao.crearVinculacionBus(e);
 	}
 	@Override
 	public Map<String, Object> listarVistaVinculacionBus() {

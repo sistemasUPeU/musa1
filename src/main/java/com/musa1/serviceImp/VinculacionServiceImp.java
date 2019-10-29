@@ -16,8 +16,11 @@ public class VinculacionServiceImp implements VinculacionService{
 	private VinculacionDao dao;
 	@Override
 	public Map<String, Object> crearVinculacion(Vinculacion e) {
-		
 		return dao.crearVinculacion(e);
+	}
+	@Override
+	public Map<String, Object> listarVistaVinculacionBus() {
+		return dao.listarVistaVinculacionBus();
 	}
 
 }

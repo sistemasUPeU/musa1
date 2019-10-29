@@ -40,10 +40,7 @@
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-data-rest</artifactId>
 	    </dependency>
-	    <dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-data-jpa</artifactId>
-	    </dependency>
+
 	    <dependency>
 	        <groupId>org.springframework.boot</groupId>
 	        <artifactId>spring-boot-starter-batch</artifactId>
@@ -58,10 +55,6 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-	        <groupId>org.hibernate.validator</groupId>
-	        <artifactId>hibernate-validator</artifactId>
-	    </dependency>
 	    <dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-web</artifactId>

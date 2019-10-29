@@ -26,5 +26,4 @@ class Musa1ApplicationTests {
 	void testListarVistaVinculacion() {
 		assertTrue(!tVinculacion.listarVistaVinculacionBus().isEmpty());
 	}
-
 }

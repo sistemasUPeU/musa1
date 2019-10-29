@@ -70,5 +70,11 @@ public class RequisitoDaoImp implements RequisitoDao{
 				.declareParameters(new SqlOutParameter("req", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return call.execute();
 	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return jdbc.update("call pkg_crud_requisito.sp_delete_requisito(?)",id);
+	}
 	
 }

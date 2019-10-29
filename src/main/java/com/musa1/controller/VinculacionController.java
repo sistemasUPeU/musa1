@@ -15,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.Requisito;
-import com.musa1.entity.VW_Vinculacion;
 import com.musa1.entity.Vinculacion;
 import com.musa1.entity.VinculacionRequisito;
 import com.musa1.service.BusService;
 import com.musa1.service.PersonaService;
 import com.musa1.service.RequisitoService;
-import com.musa1.service.VW_VinculacionService;
 import com.musa1.service.VinculacionRequisitoService;
 import com.musa1.service.VinculacionService;
 

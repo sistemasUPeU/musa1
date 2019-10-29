@@ -6,4 +6,5 @@ import com.musa1.entity.Vinculacion;
 
 public interface VinculacionDao {
 	public Map<String, Object> crearVinculacion(Vinculacion e);
+	public Map<String, Object> listarVistaVinculacionBus();
 }

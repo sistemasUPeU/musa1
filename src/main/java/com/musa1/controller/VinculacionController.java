@@ -18,6 +18,8 @@ import com.musa1.entity.Requisito;
 import com.musa1.entity.VW_Vinculacion;
 import com.musa1.entity.Vinculacion;
 import com.musa1.entity.VinculacionRequisito;
+import com.musa1.service.BusService;
+import com.musa1.service.PersonaService;
 import com.musa1.service.RequisitoService;
 import com.musa1.service.VW_VinculacionService;
 import com.musa1.service.VinculacionRequisitoService;
@@ -33,9 +35,11 @@ public class VinculacionController {
 	@Autowired
 	private VinculacionRequisitoService vinculacionRequisitoService;
 	@Autowired
-	private VW_VinculacionService vw_vinculacionService;
-	@Autowired
 	private RequisitoService requisitoService;
+	@Autowired
+	private BusService busService;
+	@Autowired
+	private PersonaService personaService;
 	
 	@GetMapping("/")
 	public int jorge() {
@@ -54,12 +58,11 @@ public class VinculacionController {
 	
 	@GetMapping("/listar")
 	public Map<String, Object> ListarVinculacion() {
-		return vw_vinculacionService.readAll();
+		return vinculacionService.listarVistaVinculacionBus();
 	}
 	
 	@GetMapping("/requisito-bus")
 	public Map<String, Object> ListarRequisitosBus(){
 		return requisitoService.ListarRequisitoBus();
 	}
-	
 }

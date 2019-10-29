@@ -7,6 +7,9 @@ public class Empresa {
 	public String responsable_social;
 	public int id_ubigeo;
 	
+	public Empresa() {
+		super();
+	}
 	public Empresa(int id_empresa, String rason_social, String ruc, String responsable_social, int id_ubigeo) {
 		super();
 		this.id_empresa = id_empresa;

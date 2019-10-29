@@ -13,24 +13,24 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.Tipo_accionDao;
-import com.musa1.entity.Tipo_accion;
+import com.musa1.dao.TipoAccionDao;
+import com.musa1.entity.TipoAccion;
 
 import oracle.jdbc.OracleTypes;
 
 @Repository
-public class Tipo_accionDaoImp implements Tipo_accionDao {
+public class TipoAccionDaoImp implements TipoAccionDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Tipo_accion tipo_accion) {
+	public int create(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_insertar_tipo_accion(?,?)", tipo_accion.getTipo_accion(),tipo_accion.getEstado());
 	}
 	@Override
-	public int update(Tipo_accion tipo_accion) {
+	public int update(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_modificar_tipo_accion(?,?,?)", tipo_accion.getId_tipo_accion(),tipo_accion.getTipo_accion(),tipo_accion.getEstado());
 	}

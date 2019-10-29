@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Tipo_accion;
-import com.musa1.service.Tipo_accionService;
+import com.musa1.entity.TipoAccion;
+import com.musa1.service.TipoAccionService;
 
 @RestController
 @RequestMapping("/tipo_accion")
-public class Tipo_accionController {
+public class TipoAccionController {
 	@Autowired
-	private Tipo_accionService tipo_accionService;
+	private TipoAccionService tipo_accionService;
 	
 	@GetMapping("/")
 	public Map<String, Object> getall(){
@@ -30,11 +30,11 @@ public class Tipo_accionController {
 		return tipo_accionService.read(id);
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Tipo_accion tipo_accion) {
+	public int save(@RequestBody TipoAccion tipo_accion) {
 		return tipo_accionService.create(tipo_accion);
 	}
 	@PutMapping("/{id}")
-	public int update(@RequestBody Tipo_accion tipo_accion, @PathVariable int id) {
+	public int update(@RequestBody TipoAccion tipo_accion, @PathVariable int id) {
 		tipo_accion.setId_tipo_accion(id);
 		return tipo_accionService.update(tipo_accion);
 	}

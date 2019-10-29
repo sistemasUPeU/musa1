@@ -1,11 +1,14 @@
 package com.musa1.entity;
 
-public class Tipo_accion {
+public class TipoAccion {
 	private int id_tipo_accion;
 	private String tipo_accion;
 	private String estado;
-
-	public Tipo_accion(int id_tipo_accion, String tipo_accion, String estado) {
+	
+	public TipoAccion() {
+		super();
+	}
+	public TipoAccion(int id_tipo_accion, String tipo_accion, String estado) {
 		super();
 		this.id_tipo_accion = id_tipo_accion;
 		this.tipo_accion = tipo_accion;

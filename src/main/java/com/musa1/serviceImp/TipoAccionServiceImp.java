@@ -5,21 +5,21 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.musa1.dao.Tipo_accionDao;
-import com.musa1.entity.Tipo_accion;
-import com.musa1.service.Tipo_accionService;
+import com.musa1.dao.TipoAccionDao;
+import com.musa1.entity.TipoAccion;
+import com.musa1.service.TipoAccionService;
 @Service
-public class Tipo_accionServiceImp implements Tipo_accionService {
+public class TipoAccionServiceImp implements TipoAccionService {
 	@Autowired
-	private Tipo_accionDao tipo_accionDao;
+	private TipoAccionDao tipo_accionDao;
 	@Override
-	public int create(Tipo_accion tipo_accion) {
+	public int create(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
 		return tipo_accionDao.create(tipo_accion);
 	}
 
 	@Override
-	public int update(Tipo_accion tipo_accion) {
+	public int update(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
 		return tipo_accionDao.update(tipo_accion);
 	}

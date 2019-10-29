@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.Requisito;
-import com.musa1.entity.VW_Vinculacion;
 import com.musa1.entity.Vinculacion;
 import com.musa1.entity.VinculacionRequisito;
+import com.musa1.service.BusService;
+import com.musa1.service.PersonaService;
 import com.musa1.service.RequisitoService;
-import com.musa1.service.VW_VinculacionService;
 import com.musa1.service.VinculacionRequisitoService;
 import com.musa1.service.VinculacionService;
 
@@ -33,9 +33,11 @@ public class VinculacionController {
 	@Autowired
 	private VinculacionRequisitoService vinculacionRequisitoService;
 	@Autowired
-	private VW_VinculacionService vw_vinculacionService;
-	@Autowired
 	private RequisitoService requisitoService;
+	@Autowired
+	private BusService busService;
+	@Autowired
+	private PersonaService personaService;
 	
 	@GetMapping("/")
 	public int jorge() {
@@ -44,22 +46,21 @@ public class VinculacionController {
 	
 	@PostMapping("/vinculacion-add")
 	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
-		int idv = (int)vinculacionService.crearVinculacion(v).get("idv");
+		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
 		return idv;
 	}
 	@PostMapping("/{idv}")
-	public int RegistrarVinculacionRequisito (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
+	public int RegistrarVinculacionRequisitoBus (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
 		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 	
 	@GetMapping("/listar")
-	public Map<String, Object> ListarVinculacion() {
-		return vw_vinculacionService.readAll();
+	public Map<String, Object> ListarVistaVinculacionBus() {
+		return vinculacionService.listarVistaVinculacionBus();
 	}
 	
 	@GetMapping("/requisito-bus")
 	public Map<String, Object> ListarRequisitosBus(){
 		return requisitoService.ListarRequisitoBus();
 	}
-	
 }

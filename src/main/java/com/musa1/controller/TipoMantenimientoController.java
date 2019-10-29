@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.TipoMantenimiento;
-import com.musa1.entity.Tipo_accion;
 import com.musa1.service.TipoMantenimientoService;
-import com.musa1.service.Tipo_accionService;;
 
 @RestController
 @RequestMapping("/tipo_mantenimiento")

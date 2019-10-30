@@ -40,4 +40,21 @@ public class VinculacionDaoImp implements VinculacionDao{
 		return call.execute();
 	}
 
+	@Override
+	public Map<String, Object> readVinculacionConductor() {
+		// TODO Auto-generated method stub
+		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_read_vinculacion_conductor").withCatalogName("pkg_crud_vinculacion")
+				.declareParameters(new SqlOutParameter("vinc", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return call.execute();
+	}
+
+	@Override
+	public Map<String, Object> createVinculacionConductor(Vinculacion vinculacion) {
+		// TODO Auto-generated method stub
+		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_ADD_VINCULACION_CONDUCTOR").withCatalogName("pkg_crud_vinculacion")
+				.declareParameters(new SqlParameter("fecha_e", Types.VARCHAR), new SqlParameter("fecha_t", Types.VARCHAR), new SqlParameter("idp", Types.INTEGER), new SqlOutParameter("idv", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("fecha_e", vinculacion.getF_emision()).addValue("fecha_t", vinculacion.getF_termino()).addValue("idp", vinculacion.getId_persona_conductor());
+		return call.execute(in);
+	}
+
 }

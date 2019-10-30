@@ -43,7 +43,15 @@ public class VinculacionController {
 	public int jorge() {
 		return 1;
 	}
-	
+	@GetMapping("/conductor")
+	public Map<String, Object> getVinculacionConductor() {
+		return vinculacionService.readVinculacionConductor();
+	}
+	@PostMapping("/addvc")
+	public int createVinculacionConductor(@RequestBody Vinculacion vinculacion) {
+		int idv = (int)vinculacionService.createVinculacionConductor(vinculacion).get("idv");
+		return idv;
+	}
 	@PostMapping("/vinculacion-add")
 	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
 		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");

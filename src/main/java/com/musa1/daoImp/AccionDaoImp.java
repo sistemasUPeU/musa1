@@ -56,7 +56,7 @@ public class AccionDaoImp implements AccionDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_readall_accion").withCatalogName("pkg_crud_persona")
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_readall_accion").withCatalogName("pkg_crud_accion")
 				.declareParameters(new SqlOutParameter("ac", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

@@ -5,7 +5,10 @@ public class Accion {
 	private String nom_accion;
 	private String estado;
 	private int id_tipo_accion;
-
+	
+	public Accion() {
+		super();
+	}
 	public Accion(int a_id, String nom_accion, String estado, int id_tipo_accion) {
 		super();
 		this.a_id = a_id;

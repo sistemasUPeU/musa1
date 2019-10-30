@@ -16,7 +16,7 @@ import com.musa1.entity.Empresa;
 import com.musa1.service.EmpresaService;
 
 @RestController
-@RequestMapping("/empresas")
+@RequestMapping("/empresa")
 public class EmpresaController {
 	@Autowired
 	private EmpresaService empresaService;

@@ -1,10 +1,9 @@
 package com.musa1.entity;
 
-import java.sql.Date;
 
 public class RevisionTecnica {
 	int id_revision_tecnica;
-	Date fecha;
+	String fecha;
 	String nro_certificado;
 	String empresa_de_revision;
 	String resultado_inspeccion;
@@ -14,7 +13,7 @@ public class RevisionTecnica {
 	int id_bus;
 	int id_persona;
 	char nota;
-	public RevisionTecnica(int id_revision_tecnica, Date fecha, String nro_certificado, String empresa_de_revision,
+	public RevisionTecnica(int id_revision_tecnica,String fecha, String nro_certificado, String empresa_de_revision,
 			String resultado_inspeccion, String vigencia_certificado, String url, String observacion, int id_bus,
 			int id_persona, char nota) {
 		super();
@@ -30,16 +29,17 @@ public class RevisionTecnica {
 		this.id_persona = id_persona;
 		this.nota = nota;
 	}
+	
 	public int getId_revision_tecnica() {
 		return id_revision_tecnica;
 	}
 	public void setId_revision_tecnica(int id_revision_tecnica) {
 		this.id_revision_tecnica = id_revision_tecnica;
 	}
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public String getNro_certificado() {
@@ -96,6 +96,8 @@ public class RevisionTecnica {
 	public void setNota(char nota) {
 		this.nota = nota;
 	}
+
+	
 	
 	
 }

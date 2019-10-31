@@ -16,7 +16,7 @@ import com.musa1.entity.TipoVinculacion;
 import com.musa1.service.TipoVinculacionService;
 
 @RestController
-@RequestMapping("/tipo_vinculacion")
+@RequestMapping("/tipoVinculacion")
 public class TipoVinculacionController {
 	@Autowired
 	private TipoVinculacionService tipoVinculacionService;

@@ -16,7 +16,7 @@ import com.musa1.entity.TipoDocumento;
 import com.musa1.service.TipoDocumentoService;
 
 @RestController
-@RequestMapping("/tipo_documento")
+@RequestMapping("/tipoDocumento")
 public class TipoDocumentoController {
 	@Autowired
 	private TipoDocumentoService tipoDocumentoService;

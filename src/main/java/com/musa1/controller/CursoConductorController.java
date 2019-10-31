@@ -17,7 +17,7 @@ import com.musa1.service.CursoConductorService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/curso_conductor")
+@RequestMapping("/cursoConductor")
 public class CursoConductorController {
 	@Autowired
 	private CursoConductorService cursoConductorService;

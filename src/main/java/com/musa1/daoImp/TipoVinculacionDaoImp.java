@@ -13,27 +13,27 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.Tipo_vinculacionDao;
-import com.musa1.entity.Tipo_vinculacion;
+import com.musa1.dao.TipoVinculacionDao;
+import com.musa1.entity.TipoVinculacion;
 
 import oracle.jdbc.OracleTypes;
 
 @Repository
-public class Tipo_vinculacionDaoImp implements Tipo_vinculacionDao{
+public class TipoVinculacionDaoImp implements TipoVinculacionDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Tipo_vinculacion tipo_vinculacion) {
+	public int create(TipoVinculacion tipoVinculacion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_vinculacion.sp_add_tipo_vinculacion(?,?)",tipo_vinculacion.getVinculacion(),tipo_vinculacion.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_vinculacion.sp_add_tipo_vinculacion(?,?)",tipoVinculacion.getVinculacion(),tipoVinculacion.getEstado());
 	}
 
 	@Override
-	public int update(Tipo_vinculacion tipo_vinculacion) {
+	public int update(TipoVinculacion tipoVinculacion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_vinculacion.sp_add_tipo_vinculacion(?,?,?)",tipo_vinculacion.getId_tipo_vinculacion(),tipo_vinculacion.getVinculacion(),tipo_vinculacion.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_vinculacion.sp_add_tipo_vinculacion(?,?,?)",tipoVinculacion.getId_tipo_vinculacion(),tipoVinculacion.getVinculacion(),tipoVinculacion.getEstado());
 	}
 
 	@Override

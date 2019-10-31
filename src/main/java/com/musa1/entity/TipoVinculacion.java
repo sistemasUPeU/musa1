@@ -1,10 +1,10 @@
 package com.musa1.entity;
 
-public class Tipo_vinculacion {
+public class TipoVinculacion {
 	int id_tipo_vinculacion;
 	String vinculacion;
 	String estado;
-	public Tipo_vinculacion(int id_tipo_vinculacion, String vinculacion, String estado) {
+	public TipoVinculacion(int id_tipo_vinculacion, String vinculacion, String estado) {
 		super();
 		this.id_tipo_vinculacion = id_tipo_vinculacion;
 		this.vinculacion = vinculacion;

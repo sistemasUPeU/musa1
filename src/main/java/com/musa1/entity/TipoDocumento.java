@@ -1,9 +1,9 @@
 package com.musa1.entity;
 
-public class Tipo_documento {
+public class TipoDocumento {
 	int id_tipo_documento;
 	String nombre_documento;
-	public Tipo_documento(int id_tipo_documento, String nombre_documento) {
+	public TipoDocumento(int id_tipo_documento, String nombre_documento) {
 		super();
 		this.id_tipo_documento = id_tipo_documento;
 		this.nombre_documento = nombre_documento;

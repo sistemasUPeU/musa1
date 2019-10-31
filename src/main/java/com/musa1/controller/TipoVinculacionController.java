@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Tipo_vinculacion;
-import com.musa1.service.Tipo_vinculacionService;
+import com.musa1.entity.TipoVinculacion;
+import com.musa1.service.TipoVinculacionService;
 
 @RestController
 @RequestMapping("/tipo_vinculacion")
-public class Tipo_vinculacionController {
+public class TipoVinculacionController {
 	@Autowired
-	private Tipo_vinculacionService tipo_vinculacionService;
+	private TipoVinculacionService tipoVinculacionService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
-		return tipo_vinculacionService.readAll();
+		return tipoVinculacionService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Tipo_vinculacion tipo_vinculacion) {
-		return tipo_vinculacionService.create(tipo_vinculacion);
+	public int save(@RequestBody TipoVinculacion tipoVinculacion) {
+		return tipoVinculacionService.create(tipoVinculacion);
 	}
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
-		return tipo_vinculacionService.delete(id);
+		return tipoVinculacionService.delete(id);
 	}
 	@GetMapping("/{id}")
 	public Map<String, Object> read(@PathVariable int id) {
-		return tipo_vinculacionService.read(id);
+		return tipoVinculacionService.read(id);
 	}
 	@PutMapping("/{id}")
-	public int update(@RequestBody Tipo_vinculacion tipo_vinculacion, @PathVariable int id) {
-		tipo_vinculacion.setId_tipo_vinculacion(id);
-		return tipo_vinculacionService.update(tipo_vinculacion);
+	public int update(@RequestBody TipoVinculacion tipoVinculacion, @PathVariable int id) {
+		tipoVinculacion.setId_tipo_vinculacion(id);
+		return tipoVinculacionService.update(tipoVinculacion);
 	}
 }

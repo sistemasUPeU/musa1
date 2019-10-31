@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Tipo_documento;
-import com.musa1.service.Tipo_documentoService;
+import com.musa1.entity.Tipo_requisito;
+import com.musa1.service.Tipo_requisitoService;
 
 @RestController
-@RequestMapping("/tipo_documento")
-public class Tipo_documentoController {
+@RequestMapping("/tipo_requisito")
+public class TipoRequisitoController {
 	@Autowired
-	private Tipo_documentoService tipo_documentoService;
+	private Tipo_requisitoService tipo_requisitoService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
-		return tipo_documentoService.readAll();
+		return tipo_requisitoService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Tipo_documento tipo_documento) {
-		return tipo_documentoService.create(tipo_documento);
+	public int save(@RequestBody Tipo_requisito tipo_requisito) {
+		return tipo_requisitoService.create(tipo_requisito);
 	}
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
-		return tipo_documentoService.delete(id);
+		return tipo_requisitoService.delete(id);
 	}
 	@GetMapping("/{id}")
 	public Map<String, Object> read(@PathVariable int id) {
-		return tipo_documentoService.read(id);
+		return tipo_requisitoService.read(id);
 	}
 	@PutMapping("/{id}")
-	public int update(@RequestBody Tipo_documento tipo_doc, @PathVariable int id) {
-		tipo_doc.setId_tipo_documento(id);
-		return tipo_documentoService.edit(tipo_doc);
+	public int update(@RequestBody Tipo_requisito tipo_req, @PathVariable int id) {
+		tipo_req.setId_tipo_requisito(id);
+		return tipo_requisitoService.edit(tipo_req);
 	}
 }

@@ -1,6 +1,6 @@
 package com.musa1.entity;
 
-public class Curso_conductor {
+public class CursoConductor {
 	int id_curso_conductor;
 	String f_inicio;
 	String f_fin;
@@ -11,7 +11,7 @@ public class Curso_conductor {
 	int id_curso;
 	int id_persona;
 	
-	public Curso_conductor(int id_curso_conductor, String f_inicio, String f_fin, String estado, String carnet_c,
+	public CursoConductor(int id_curso_conductor, String f_inicio, String f_fin, String estado, String carnet_c,
 			String f_caducidad, String f_emision, int id_curso, int id_persona) {
 		super();
 		this.id_curso_conductor = id_curso_conductor;

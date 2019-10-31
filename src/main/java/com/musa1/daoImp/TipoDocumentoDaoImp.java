@@ -13,27 +13,27 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.Tipo_documentoDao;
-import com.musa1.entity.Tipo_documento;
+import com.musa1.dao.TipoDocumentoDao;
+import com.musa1.entity.TipoDocumento;
 
 import oracle.jdbc.internal.OracleTypes;
 
 @Repository
-public class Tipo_documentoDaoImp implements Tipo_documentoDao {
+public class TipoDocumentoDaoImp implements TipoDocumentoDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Tipo_documento tipo_documento) {
+	public int create(TipoDocumento tipoDocumento) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_documento.sp_add_tipo_documento(?)",tipo_documento.getNombre_documento());
+		return jdbcTemplate.update("call pkg_crud_tipo_documento.sp_add_tipo_documento(?)",tipoDocumento.getNombre_documento());
 	}
 
 	@Override
-	public int edit(Tipo_documento tipo_documento) {
+	public int edit(TipoDocumento tipoDocumento) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_documento.sp_update_tipo_documento(?)",tipo_documento.getNombre_documento());
+		return jdbcTemplate.update("call pkg_crud_tipo_documento.sp_update_tipo_documento(?)",tipoDocumento.getNombre_documento());
 	}
 
 	@Override

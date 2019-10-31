@@ -43,6 +43,7 @@ public class VinculacionController {
 	public int jorge() {
 		return 1;
 	}
+
 	@GetMapping("/conductor")
 	public Map<String, Object> getVinculacionConductor() {
 		return vinculacionService.readVinculacionConductor();
@@ -51,15 +52,6 @@ public class VinculacionController {
 	public int createVinculacionConductor(@RequestBody Vinculacion vinculacion) {
 		int idv = (int)vinculacionService.createVinculacionConductor(vinculacion).get("idv");
 		return idv;
-	}
-	@PostMapping("/vinculacion-add")
-	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
-		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
-		return idv;
-	}
-	@PostMapping("/{idv}")
-	public int RegistrarVinculacionRequisitoBus (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
-		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 	
 	@GetMapping("/listar")
@@ -70,5 +62,20 @@ public class VinculacionController {
 	@GetMapping("/requisito-bus")
 	public Map<String, Object> ListarRequisitosBus(){
 		return requisitoService.ListarRequisitoBus();
+	}
+	
+	@GetMapping("/{id}")
+	public Map<String, Object> ListarVinculacionRequisitoBus( @PathVariable int idv){
+		return vinculacionRequisitoService.ListarVinculacionRequisito(idv);
+	}
+	
+	@PostMapping("/vinculacion-add")
+	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
+		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
+		return idv;
+	}
+	@PostMapping("/{idv}")
+	public int RegistrarVinculacionRequisitoBus (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
+		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 }

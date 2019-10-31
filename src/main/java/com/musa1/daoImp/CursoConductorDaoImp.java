@@ -13,31 +13,31 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.Curso_conductorDao;
-import com.musa1.entity.Curso_conductor;
+import com.musa1.dao.CursoConductorDao;
+import com.musa1.entity.CursoConductor;
 
 import oracle.jdbc.internal.OracleTypes;
 
 @Repository
-public class Curso_conductorDaoImp implements Curso_conductorDao {
+public class CursoConductorDaoImp implements CursoConductorDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Curso_conductor curso_conductor) {
+	public int create(CursoConductor cursoConductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?,?,?,?,?)",curso_conductor.getF_inicio(),curso_conductor.getF_fin(),curso_conductor.getEstado(),curso_conductor.getCarnet_c(),curso_conductor.getF_caducidad(),curso_conductor.getF_emision(),curso_conductor.getId_curso(),curso_conductor.getId_persona());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?,?,?,?,?)",cursoConductor.getF_inicio(),cursoConductor.getF_fin(),cursoConductor.getEstado(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision(),cursoConductor.getId_curso(),cursoConductor.getId_persona());
 	}
 
 	@Override
-	public int update(Curso_conductor curso_conductor) {
+	public int update(CursoConductor cursoConductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?,?)",curso_conductor.getId_curso_conductor(),curso_conductor.getEstado(),curso_conductor.getCarnet_c(),curso_conductor.getF_caducidad(),curso_conductor.getF_emision());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?,?)",cursoConductor.getId_curso_conductor(),cursoConductor.getEstado(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision());
 	}
 
 	@Override
-	public Map<String, Object> searchCurso_conductor(String nombre) {
+	public Map<String, Object> searchCursoConductor(String nombre) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withFunctionName("FN_SEARCH_CURSO_CONDUCTOR")

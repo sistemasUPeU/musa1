@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Curso_conductor;
-import com.musa1.service.Curso_conductorService;
+import com.musa1.entity.CursoConductor;
+import com.musa1.service.CursoConductorService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/curso_conductor")
-public class Curso_conductorController {
+public class CursoConductorController {
 	@Autowired
-	private Curso_conductorService curso_conductorService;
+	private CursoConductorService cursoConductorService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
-		return curso_conductorService.readAll();
+		return cursoConductorService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Curso_conductor curso_conductor) {
-		return curso_conductorService.create(curso_conductor);
+	public int save(@RequestBody CursoConductor cursoConductor) {
+		return cursoConductorService.create(cursoConductor);
 	}
 	@GetMapping("/{nombre}")
 	public Map<String, Object> search(@PathVariable String nombre) {
-		return curso_conductorService.searchCurso_conductor(nombre);
+		return cursoConductorService.searchCursoConductor(nombre);
 	}
 	@PutMapping("/{id}")
-	public int update(@RequestBody Curso_conductor cur, @PathVariable int id) {
+	public int update(@RequestBody CursoConductor cur, @PathVariable int id) {
 		cur.setId_curso_conductor(id);
-		return curso_conductorService.update(cur);
+		return cursoConductorService.update(cur);
 	}
 }

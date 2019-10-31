@@ -5,43 +5,43 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.musa1.dao.Tipo_documentoDao;
-import com.musa1.entity.Tipo_documento;
-import com.musa1.service.Tipo_documentoService;
+import com.musa1.dao.TipoDocumentoDao;
+import com.musa1.entity.TipoDocumento;
+import com.musa1.service.TipoDocumentoService;
 
 @Service
-public class Tipo_documentoServiceImp implements Tipo_documentoService {
+public class TipoDocumentoServiceImp implements TipoDocumentoService {
 	@Autowired
-	private Tipo_documentoDao tipo_documentoDao;
+	private TipoDocumentoDao tipoDocumentoDao;
 	
 	@Override
-	public int create(Tipo_documento tipo_documento) {
+	public int create(TipoDocumento tipoDocumento) {
 		// TODO Auto-generated method stub
-		return tipo_documentoDao.create(tipo_documento);
+		return tipoDocumentoDao.create(tipoDocumento);
 	}
 
 	@Override
-	public int edit(Tipo_documento tipo_documento) {
+	public int edit(TipoDocumento tipoDocumento) {
 		// TODO Auto-generated method stub
-		return tipo_documentoDao.edit(tipo_documento);
+		return tipoDocumentoDao.edit(tipoDocumento);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return tipo_documentoDao.delete(id);
+		return tipoDocumentoDao.delete(id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return tipo_documentoDao.read(id);
+		return tipoDocumentoDao.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		return tipo_documentoDao.readAll();
+		return tipoDocumentoDao.readAll();
 	}
 
 }

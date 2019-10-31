@@ -27,8 +27,8 @@ public class BusController {
 	}
 	
 	@PostMapping("/add")
-	public int agregar(@RequestBody Bus bus) {
-		return busService.create(bus);
+	public int agregar(@RequestBody Bus b) {
+		return busService.create(b);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -42,9 +42,9 @@ public class BusController {
 	}
 	
 	@PutMapping("/{id}")
-	public int update(@RequestBody Bus bus, @PathVariable int id) {
-		bus.setId_bus(id);
-		return busService.update(bus);
+	public int update(@RequestBody Bus b, @PathVariable int id) {
+		b.setId_bus(id);
+		return busService.update(b);
 	}
 	
 }

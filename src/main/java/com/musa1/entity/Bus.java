@@ -6,7 +6,7 @@ public class Bus {
 	private String placa;
 	private String descripcion;
 	private String padron;
-	private String estado;
+	private int estado;
 	private String modelo;
 	private int nro_motor;
 	private int año_fabricacion;
@@ -17,7 +17,7 @@ public class Bus {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Bus(int id_bus, String marca, String placa, String descripcion, String padron, String estado, String modelo,
+	public Bus(int id_bus, String marca, String placa, String descripcion, String padron, int estado, String modelo,
 			int nro_motor, int año_fabricacion, int nro_serie, int nro_asientos, int id_persona_propietario) {
 		super();
 		this.id_bus = id_bus;
@@ -63,10 +63,10 @@ public class Bus {
 	public void setPadron(String padron) {
 		this.padron = padron;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 	public String getModelo() {

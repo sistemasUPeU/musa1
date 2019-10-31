@@ -13,27 +13,27 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.Tipo_requisitoDao;
-import com.musa1.entity.Tipo_requisito;
+import com.musa1.dao.TipoRequisitoDao;
+import com.musa1.entity.TipoRequisito;
 
 import oracle.jdbc.internal.OracleTypes;
 
 @Repository
-public class Tipo_requisitoDaoImp implements Tipo_requisitoDao{
+public class TipoRequisitoDaoImp implements TipoRequisitoDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Tipo_requisito tipo_requisito) {
+	public int create(TipoRequisito tipoRequisito) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_requisito.sp_add_tipo_requisito(?,?)",tipo_requisito.getRequisito(),tipo_requisito.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_requisito.sp_add_tipo_requisito(?,?)",tipoRequisito.getTipo_requisito(),tipoRequisito.getEstado());
 	}
 
 	@Override
-	public int edit(Tipo_requisito tipo_requisito) {
+	public int edit(TipoRequisito tipoRequisito) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_requisito.sp_update_tipo_requisito(?,?,?)",tipo_requisito.getId_tipo_requisito(),tipo_requisito.getRequisito(),tipo_requisito.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_requisito.sp_update_tipo_requisito(?,?,?)",tipoRequisito.getId_tipo_requisito(),tipoRequisito.getTipo_requisito(),tipoRequisito.getEstado());
 	}
 
 	@Override
@@ -59,6 +59,12 @@ public class Tipo_requisitoDaoImp implements Tipo_requisitoDao{
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_TIPO_REQUISITO").withCatalogName("pkg_crud_tipo_requisito")
 				.declareParameters(new SqlOutParameter("tipo_req", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public Map<String, Object> ListarTipoRequisitosBus() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

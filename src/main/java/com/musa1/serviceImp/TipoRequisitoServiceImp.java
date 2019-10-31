@@ -5,43 +5,43 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.musa1.dao.Tipo_requisitoDao;
-import com.musa1.entity.Tipo_requisito;
-import com.musa1.service.Tipo_requisitoService;
+import com.musa1.dao.TipoRequisitoDao;
+import com.musa1.entity.TipoRequisito;
+import com.musa1.service.TipoRequisitoService;
 
 @Service
-public class Tipo_requisitoServiceImp implements Tipo_requisitoService{
+public class TipoRequisitoServiceImp implements TipoRequisitoService{
 	@Autowired
-	private Tipo_requisitoDao tipo_requisitoDao;
+	private TipoRequisitoDao tipoRequisitoDao;
 	
 	@Override
-	public int create(Tipo_requisito tipo_requisito) {
+	public int create(TipoRequisito tipoRequisito) {
 		// TODO Auto-generated method stub
-		return tipo_requisitoDao.create(tipo_requisito);
+		return tipoRequisitoDao.create(tipoRequisito);
 	}
 
 	@Override
-	public int edit(Tipo_requisito tipo_requisito) {
+	public int edit(TipoRequisito tipoRequisito) {
 		// TODO Auto-generated method stub
-		return tipo_requisitoDao.edit(tipo_requisito);
+		return tipoRequisitoDao.edit(tipoRequisito);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return tipo_requisitoDao.delete(id);
+		return tipoRequisitoDao.delete(id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return tipo_requisitoDao.read(id);
+		return tipoRequisitoDao.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		return tipo_requisitoDao.readAll();
+		return tipoRequisitoDao.readAll();
 	}
 
 }

@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Tipo_requisito;
-import com.musa1.service.Tipo_requisitoService;
+import com.musa1.entity.TipoRequisito;
+import com.musa1.service.TipoRequisitoService;
 
 @RestController
-@RequestMapping("/tipo_requisito")
+@RequestMapping("/tipoRequisito")
 public class TipoRequisitoController {
 	@Autowired
-	private Tipo_requisitoService tipo_requisitoService;
+	private TipoRequisitoService tipoRequisitoService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
-		return tipo_requisitoService.readAll();
+		return tipoRequisitoService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Tipo_requisito tipo_requisito) {
-		return tipo_requisitoService.create(tipo_requisito);
+	public int save(@RequestBody TipoRequisito tipoRequisito) {
+		return tipoRequisitoService.create(tipoRequisito);
 	}
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
-		return tipo_requisitoService.delete(id);
+		return tipoRequisitoService.delete(id);
 	}
 	@GetMapping("/{id}")
 	public Map<String, Object> read(@PathVariable int id) {
-		return tipo_requisitoService.read(id);
+		return tipoRequisitoService.read(id);
 	}
 	@PutMapping("/{id}")
-	public int update(@RequestBody Tipo_requisito tipo_req, @PathVariable int id) {
-		tipo_req.setId_tipo_requisito(id);
-		return tipo_requisitoService.edit(tipo_req);
+	public int update(@RequestBody TipoRequisito tipoRequisito, @PathVariable int id) {
+		tipoRequisito.setId_tipo_requisito(id);
+		return tipoRequisitoService.edit(tipoRequisito);
 	}
 }

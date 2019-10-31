@@ -1,5 +1,7 @@
 package com.musa1.serviceImp;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class VinculacionRequisitoServiceImp implements VinculacionRequisitoServi
 	public int CrearRequisitoBus(VinculacionRequisito e, int id_v) {
 		e.setId_vinculacion(id_v);
 		return vinculacionRequisitoDao.CrearRequisitoBus(e);
+	}
+	@Override
+	public Map<String, Object> ListarVinculacionRequisito(int idv) {
+		return vinculacionRequisitoDao.ListarVinculacionRequisito(idv);
 	}
 
 }

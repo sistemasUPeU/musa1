@@ -13,6 +13,7 @@ import com.musa1.service.BusService;
 public class BusServiceImp implements BusService{
 	@Autowired
 	private BusDao busDao;
+	
 	@Override
 	public int create(Bus b) {
 		// TODO Auto-generated method stub

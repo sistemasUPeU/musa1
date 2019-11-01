@@ -40,4 +40,16 @@ public class VinculacionRequisitoDaoImp implements VinculacionRequisitoDao{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("idv", idv).addValue("tr", "Bus");
 		return  call.execute(in);
 	}
+
+	@Override
+	public int createRequisitoConductor(VinculacionRequisito vinculacionRequisito) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Map<String, Object> readVinculacionRequisitoConductor(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -23,5 +23,16 @@ public class VinculacionRequisitoServiceImp implements VinculacionRequisitoServi
 	public Map<String, Object> ListarVinculacionRequisito(int idv) {
 		return vinculacionRequisitoDao.ListarVinculacionRequisito(idv);
 	}
+	@Override
+	public int createRequisitoConductor(VinculacionRequisito vinculacionRequisito, int id) {
+		// TODO Auto-generated method stub
+		vinculacionRequisito.setId_vinculacion(id);
+		return vinculacionRequisitoDao.createRequisitoConductor(vinculacionRequisito);
+	}
+	@Override
+	public Map<String, Object> readVinculacionRequisitoConductor(int id) {
+		// TODO Auto-generated method stub
+		return vinculacionRequisitoDao.readVinculacionRequisitoConductor(id);
+	}
 
 }

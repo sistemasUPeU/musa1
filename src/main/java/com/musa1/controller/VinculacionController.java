@@ -53,6 +53,10 @@ public class VinculacionController {
 		int idv = (int)vinculacionService.createVinculacionConductor(vinculacion).get("idv");
 		return idv;
 	}
+	@GetMapping("/conductor/{id}")
+	public Map<String, Object> getVinculacionRequisitoConductor(@PathVariable int id){
+		return vinculacionRequisitoService.readVinculacionRequisitoConductor(id);
+	}
 	
 	@GetMapping("/listar")
 	public Map<String, Object> ListarVistaVinculacionBus() {

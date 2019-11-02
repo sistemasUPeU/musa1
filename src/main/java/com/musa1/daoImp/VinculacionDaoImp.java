@@ -28,14 +28,14 @@ public class VinculacionDaoImp implements VinculacionDao{
 	@Override
 	public Map<String, Object> crearVinculacionBus(Vinculacion e) {
 		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_INSERT_VC_BUS").withCatalogName("PKG_CRUD_VINCULACION_BUS")
-				.declareParameters(new SqlParameter("f_e", Types.VARCHAR), new SqlParameter("f_t", Types.VARCHAR), new SqlParameter("bus", Types.INTEGER), new SqlOutParameter("idv", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("f_e", e.getF_emision()).addValue("f_t", e.getF_termino()).addValue("bus", e.getId_bus());
+				.declareParameters(new SqlParameter("f_e", Types.VARCHAR), new SqlParameter("f_t", Types.VARCHAR), new SqlParameter("bus", Types.INTEGER), new SqlParameter("iestado", Types.CHAR), new SqlOutParameter("idv", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("f_e", e.getF_emision()).addValue("f_t", e.getF_termino()).addValue("bus", e.getId_bus()).addValue("iestado", e.getEstado());
 		return call.execute(in);
 	}
 
 	@Override
 	public Map<String, Object> listarVistaVinculacionBus() {
-		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_vinculaciones").withCatalogName("pkg_crud_vinculacion_bus")
+		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_vinculaciones_bus").withCatalogName("pkg_crud_vinculacion_bus")
 				.declareParameters(new SqlOutParameter("vcs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return call.execute();
 	}
@@ -55,6 +55,19 @@ public class VinculacionDaoImp implements VinculacionDao{
 				.declareParameters(new SqlParameter("fecha_e", Types.VARCHAR), new SqlParameter("fecha_t", Types.VARCHAR), new SqlParameter("idp", Types.INTEGER), new SqlOutParameter("idv", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("fecha_e", vinculacion.getF_emision()).addValue("fecha_t", vinculacion.getF_termino()).addValue("idp", vinculacion.getId_persona_conductor());
 		return call.execute(in);
+	}
+
+	@Override
+	public Map<String, Object> listarVinculacionBusPlaca(String placa) {
+		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_LISTAR_VINCULACION_PLACA").withCatalogName("PKG_CRUD_VINCULACION_BUS")
+				.declareParameters(new SqlParameter("placa", Types.VARCHAR), new SqlOutParameter("v", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("placa", placa);
+		return call.execute(in);
+	}
+
+	@Override
+	public int eliminarVinculacionBus(int id) {
+		return jdbc.update("CALL PKG_CRUD_VINCULACION_BUS.sp_eliminar_vinculacion_bus(?)", id);
 	}
 
 }

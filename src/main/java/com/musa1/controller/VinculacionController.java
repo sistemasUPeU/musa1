@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,28 +59,44 @@ public class VinculacionController {
 		return vinculacionRequisitoService.readVinculacionRequisitoConductor(id);
 	}
 	
-	@GetMapping("/listar")
+	@GetMapping("/bus")
 	public Map<String, Object> ListarVistaVinculacionBus() {
 		return vinculacionService.listarVistaVinculacionBus();
 	}
-	
-	@GetMapping("/requisito-bus")
+	//mover
+	@GetMapping("/bus/requisito")
 	public Map<String, Object> ListarRequisitosBus(){
 		return requisitoService.ListarRequisitoBus();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/bus/requisito/{idv}")
 	public Map<String, Object> ListarVinculacionRequisitoBus( @PathVariable int idv){
 		return vinculacionRequisitoService.ListarVinculacionRequisito(idv);
 	}
 	
-	@PostMapping("/vinculacion-add")
-	public int RegistrarVinculacion( @RequestBody Vinculacion v) {
+	@GetMapping("/bus/{placa}")
+	public Map<String, Object> ListarVistaVinculacionBusPlaca(@PathVariable String placa) {
+		return vinculacionService.listarVinculacionBusPlaca(placa);
+	}
+	
+	@PostMapping("/bus")
+	public int RegistrarVinculacionBus( @RequestBody Vinculacion v) {
 		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
 		return idv;
 	}
-	@PostMapping("/{idv}")
+	
+	@PostMapping("/requisito")
+	public int ModificarVinculacionRequisito(@RequestBody VinculacionRequisito e) {
+		return vinculacionRequisitoService.modificarVinculacionRequisito(e);
+	}
+	
+	@PutMapping("/bus/{idv}")
 	public int RegistrarVinculacionRequisitoBus (@RequestBody VinculacionRequisito e, @PathVariable int idv) {
 		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
+	}
+	
+	@DeleteMapping("/bus/{idv}")
+	public int EliminarVinculacionRequisitoBus(@PathVariable int idv) {
+		return vinculacionService.eliminarVinculacionBus(idv);
 	}
 }

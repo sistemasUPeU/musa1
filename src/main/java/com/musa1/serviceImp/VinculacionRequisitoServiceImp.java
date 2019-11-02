@@ -34,5 +34,10 @@ public class VinculacionRequisitoServiceImp implements VinculacionRequisitoServi
 		// TODO Auto-generated method stub
 		return vinculacionRequisitoDao.readVinculacionRequisitoConductor(id);
 	}
+	
+	@Override
+	public int modificarVinculacionRequisito(VinculacionRequisito e) {
+		return vinculacionRequisitoDao.modificarVinculacionRequisito(e);
+	}
 
 }

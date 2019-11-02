@@ -23,5 +23,9 @@ public class VinculacionRequisitoServiceImp implements VinculacionRequisitoServi
 	public Map<String, Object> ListarVinculacionRequisito(int idv) {
 		return vinculacionRequisitoDao.ListarVinculacionRequisito(idv);
 	}
+	@Override
+	public int modificarVinculacionRequisito(VinculacionRequisito e) {
+		return vinculacionRequisitoDao.modificarVinculacionRequisito(e);
+	}
 
 }

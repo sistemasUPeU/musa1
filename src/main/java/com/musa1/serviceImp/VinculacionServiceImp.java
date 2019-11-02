@@ -32,6 +32,14 @@ public class VinculacionServiceImp implements VinculacionService{
 		// TODO Auto-generated method stub
 		return dao.createVinculacionConductor(vinculacion);
 	}
+	@Override
+	public Map<String, Object> listarVinculacionBusPlaca(String placa) {
+		return dao.listarVinculacionBusPlaca(placa);
+	}
+	@Override
+	public int eliminarVinculacionBus(int id) {
+		return dao.eliminarVinculacionBus(id);
+	}
 
 }
 

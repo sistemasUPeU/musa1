@@ -40,7 +40,7 @@ public class BusDaoImp implements BusDao{
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_delete_bus(?",id);
+		return jdbcTemplate.update("call pkg_crud_bus.sp_delete_bus(?)",id);
 	}
 
 	@Override

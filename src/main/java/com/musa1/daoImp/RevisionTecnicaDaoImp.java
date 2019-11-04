@@ -27,7 +27,7 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public int create(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_revision_tecnica.sp_insertar_revision_tecnica(?,?,?,?,?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getNro_certificado(),
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_INSERTAR_REVISION_TECNICA(?,?,?,?,?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getNro_certificado(),
 				revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getVigencia_certificado(),revisiontecnica.getUrl(),
 				revisiontecnica.getObservacion(),revisiontecnica.getId_bus(),revisiontecnica.getId_persona(),revisiontecnica.getNota());
 	}
@@ -35,7 +35,7 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public int edit(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_revision_tecnica.sp_modificar_revision_tecnica(?,?,?,?,?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),revisiontecnica.getNro_certificado(),
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_MODIFICAR_REVISION_TECNICA(?,?,?,?,?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),revisiontecnica.getNro_certificado(),
 				revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getVigencia_certificado(),revisiontecnica.getUrl(),
 				revisiontecnica.getObservacion(),revisiontecnica.getId_bus(),revisiontecnica.getId_persona(),revisiontecnica.getNota());
 	}
@@ -43,13 +43,13 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_revision_tecnica.sp_revision_tecnica(?)",id);
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_ELIMINAR_REVISION_TECNICA(?)",id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("SP_READ_REVISION_TECNICA").withCatalogName("pkg_crud_revision_tecnica")
+				.withProcedureName("SP_READ_REVISION_TECNICA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
 				.declareParameters(new SqlOutParameter("rev",OracleTypes
 						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("rt_id", Types.INTEGER));
 				SqlParameterSource in = new MapSqlParameterSource().addValue("rt_id", id);
@@ -59,7 +59,7 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_REVISION_TECNICA").withCatalogName("pkg_crud_revision_tecnica")
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_REVISION_TECNICA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
 				.declareParameters(new SqlOutParameter("rev", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

@@ -9,10 +9,27 @@ public class Persona {
 	String celular;
 	int id_tipo_documento;
 	
+	public Persona() {
+		super();
+	}
+
 	public Persona(int id_persona, String nombre_persona, String apellido_paterno, String apellido_materno,
 			String nro_documento, String celular, int id_tipo_documento) {
 		super();
 		this.id_persona = id_persona;
+		this.nombre_persona = nombre_persona;
+		this.apellido_paterno = apellido_paterno;
+		this.apellido_materno = apellido_materno;
+		this.nro_documento = nro_documento;
+		this.celular = celular;
+		this.id_tipo_documento = id_tipo_documento;
+	}
+	
+	
+
+	public Persona(String nombre_persona, String apellido_paterno, String apellido_materno, String nro_documento,
+			String celular, int id_tipo_documento) {
+		super();
 		this.nombre_persona = nombre_persona;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;

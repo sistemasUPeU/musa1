@@ -2,10 +2,13 @@ package com.musa1.daoImp;
 
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import com.musa1.dao.RolDao;
 import com.musa1.entity.OpcionRol;
 import com.musa1.entity.Rol;
 
+@Repository
 public class RolDaoImp implements RolDao {
 
 	@Override

@@ -26,6 +26,9 @@ public class Usuario {
 		this.fecha_modificacion = fecha_modificacion;
 		this.super_usuario = super_usuario;
 	}
+	public Usuario() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId_usuario() {
 		return id_usuario;
 	}

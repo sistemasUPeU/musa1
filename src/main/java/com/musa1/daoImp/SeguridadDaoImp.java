@@ -1,10 +1,12 @@
 package com.musa1.daoImp;
 
 import java.sql.Types;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
@@ -17,11 +19,14 @@ import com.musa1.dao.SeguridadDao;
 import com.musa1.entity.Usuario;
 import com.musa1.entity.UsuarioRol;
 
+import oracle.jdbc.internal.OracleTypes;
+
 @Repository
 public class SeguridadDaoImp implements SeguridadDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
+	
 	@Override
 	public Map<String, Object> createUser(Usuario usuario) {
 		// TODO Auto-generated method stub
@@ -30,13 +35,6 @@ public class SeguridadDaoImp implements SeguridadDao{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("nom_user", usuario.getNom_usuario()).addValue("pass", usuario.getContrasena()).addValue("cod_per", usuario.getCod_persona()).addValue("user_create", usuario.getUsuario_creacion()).addValue("super_u", usuario.getSuper_usuario());
 		return simpleJdbcCall.execute(in);
 	}
-
-	@Override
-	public int validateUser(String user, String pass) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("CALL PKG_SEGURIDAD.SP_VALIDATE_USER(?,?)",user,pass);
-	}
-
 	@Override
 	public int updatePassword(Usuario usuario) {
 		// TODO Auto-generated method stub
@@ -47,6 +45,14 @@ public class SeguridadDaoImp implements SeguridadDao{
 	public int giveRol(UsuarioRol usuarioRol) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("CALL PKG_SEGURIDAD.SP_ADD_USUARIO_ROL(?,?,?)",usuarioRol.getId_usuario(),usuarioRol.getId_rol(),usuarioRol.getFecha_v());
+	}
+
+	@Override
+	public Map<String, Object> readUsuarios() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_USUARIO").withCatalogName("pkg_seguridad")
+				.declareParameters(new SqlOutParameter("users", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
 	}
 
 

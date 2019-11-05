@@ -20,7 +20,10 @@ import com.musa1.service.SeguridadService;
 public class SeguridadController {
 	@Autowired
 	private SeguridadService seguridadService;
-	
+	@GetMapping("/")
+	public Map<String, Object>get(){
+		return seguridadService.readUsuarios();
+	}
 	@PostMapping("/add")
 	public Map<String, Object> create(@RequestBody Usuario usuario) {
 		return seguridadService.createUser(usuario);

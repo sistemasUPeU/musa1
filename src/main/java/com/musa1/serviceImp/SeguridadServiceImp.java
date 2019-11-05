@@ -38,4 +38,10 @@ public class SeguridadServiceImp implements SeguridadService {
 		return null;
 	}
 
+	@Override
+	public Map<String, Object> readUsuarios() {
+		// TODO Auto-generated method stub
+		return seguridadDao.readUsuarios();
+	}
+
 }

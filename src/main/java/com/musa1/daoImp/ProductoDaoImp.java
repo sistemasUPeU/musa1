@@ -25,39 +25,39 @@ public class ProductoDaoImp implements ProductoDao{
 	@Override
 	public int create(Producto producto) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_producto.insertar_producto(?,?,?,?,?,?)",producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getCodigo(),producto.getId_marca());
+		return jdbcTemplate.update("call pkg_crud_producto.sp_insertar_producto(?,?,?,?,?,?)",producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getCodigo(),producto.getId_marca());
 	}
 
 	@Override
 	public int edit(Producto producto) {
 		// TODO Auto-generated method stub	
-		return jdbcTemplate.update("call pkg_crud_producto.actualizar_producto(?,?,?,?,?,?,?)",producto.getId_producto(),producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getCodigo(),producto.getId_marca());
+		return jdbcTemplate.update("call pkg_crud_producto.sp_actualizar_producto(?,?,?,?,?,?,?)",producto.getId_producto(),producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getCodigo(),producto.getId_marca());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_producto.eliminar_producto(?)",id);
+		return jdbcTemplate.update("call pkg_crud_producto.sp_eliminar_producto(?)",id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("SP_READ_PRODUCTO").withCatalogName("pkg_crud_producto")
-				.declareParameters(new SqlOutParameter("prod",OracleTypes
-						.CURSOR,new ColumnMapRowMapper()),new SqlParameter("idpr", Types.INTEGER));
-				SqlParameterSource in =new MapSqlParameterSource().addValue("idpr", id);
+				.withProcedureName("sp_read_producto").withCatalogName("pkg_crud_producto")
+				.declareParameters(new SqlOutParameter("lis_prod",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("id_prod", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("id_prod", id);
 		return simpleJdbcCall.execute(in);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_PRODUCTO").withCatalogName("pkg_crud_producto")
-				.declareParameters(new SqlOutParameter("prod", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_consulta_producto").withCatalogName("pkg_crud_producto")
+				.declareParameters(new SqlOutParameter("lis_prod", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+
 
 	
 }

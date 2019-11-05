@@ -41,9 +41,6 @@ public class ProductoController {
 		return productoService.edit(prod);
 	}
 	
-	@GetMapping ("/detalle")
-	public Map<String, Object> read(){
-		return productoService.consreadAll();
-	}
+	
 	
 }

@@ -58,5 +58,13 @@ public class ProductoDaoImp implements ProductoDao{
 		return simpleJdbcCall.execute();
 	}
 
+	@Override
+	public Map<String, Object> conreadAll() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_CONSULTA_PRODUCTO").withCatalogName("pkg_crud_producto")
+				.declareParameters(new SqlOutParameter("lis_prod", OracleTypes.CURSOR,new ColumnMapRowMapper()));
+		return null;
+	}
+
 	
 }

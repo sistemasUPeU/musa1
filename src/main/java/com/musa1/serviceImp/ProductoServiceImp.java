@@ -38,4 +38,10 @@ public class ProductoServiceImp implements ProductoService{
 		return productoDao.readAll();
 	}
 
+	@Override
+	public Map<String, Object> consreadAll() {
+		// TODO Auto-generated method stub
+		return productoDao.readAll();
+	}
+
 }

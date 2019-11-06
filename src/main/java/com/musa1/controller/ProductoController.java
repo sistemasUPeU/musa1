@@ -2,6 +2,7 @@ package com.musa1.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.musa1.service.ProductoService;
 @RestController
 @RequestMapping("/producto")
 public class ProductoController {
+	@Autowired
 	private ProductoService productoService;
 	
 	@GetMapping("/")

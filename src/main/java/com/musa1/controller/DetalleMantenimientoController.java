@@ -10,34 +10,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.musa1.entity.Mantenimiento;
-import com.musa1.service.MantenimientoService;
+
+import com.musa1.entity.DetalleMantenimiento;
+import com.musa1.service.DetalleMantenimientoService;
 
 @RestController
-@RequestMapping("/mantenimiento")
-public class MantenimientoController {
+@RequestMapping("/detalle_mantenimiento")
+public class DetalleMantenimientoController {
 	@Autowired
-	private MantenimientoService mantenimientoService;
+	private DetalleMantenimientoService detallemantenimientoService;
 	
 	@GetMapping("/")
 	public Map<String, Object> getall(){
-		return mantenimientoService.readAll();
+		return detallemantenimientoService.readAll();
 	}
+	
 	@GetMapping("/{id}")
 	public Map<String, Object> getread(@PathVariable int id){
-		return mantenimientoService.read(id);
+		return detallemantenimientoService.read(id);
 	}
+	
 	@PostMapping("/add")
-	public int save(@RequestBody Mantenimiento mantenimiento) {
-		return mantenimientoService.create(mantenimiento);
+	public int save(@RequestBody DetalleMantenimiento detallemantenimiento) {
+		return detallemantenimientoService.create(detallemantenimiento);
 	}
+	
 	@PutMapping("/{id}")
-	public int update(@RequestBody Mantenimiento mantenimiento, @PathVariable int id) {
-		mantenimiento.setId_mantenimiento(id);
-		return mantenimientoService.update(mantenimiento);
+	public int update(@RequestBody DetalleMantenimiento detallemantenimiento, @PathVariable int id) {
+		detallemantenimiento.setId_detalle_accion_mant(id);
+		return detallemantenimientoService.update(detallemantenimiento);
 	}
-	@DeleteMapping("/{id}")
-	public int delete(@PathVariable int id) {
-		return mantenimientoService.delete(id);
-	}
+	
+	
+	
+	
 }

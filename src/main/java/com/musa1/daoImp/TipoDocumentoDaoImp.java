@@ -49,7 +49,7 @@ public class TipoDocumentoDaoImp implements TipoDocumentoDao {
 				.withProcedureName("SP_READ_TIPO_DOCUMENTO").withCatalogName("pkg_crud_tipo_documento")
 				.declareParameters(new SqlOutParameter("tipo_doc", OracleTypes
 						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("iddoc", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("tipo_doc", id);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("iddoc", id);
 		return simpleJdbcCall.execute(in);
 	}
 

@@ -39,6 +39,10 @@ public class PersonaController {
 	public Map<String, Object> read(@PathVariable int id) {
 		return personaService.read(id);
 	}
+	@GetMapping("/search/{nombre}")
+	public Map<String, Object> search(@PathVariable String nombre) {
+		return personaService.searchPersona(nombre);
+	}
 	@PutMapping("/{id}")
 	public int update(@RequestBody Persona per, @PathVariable int id) {
 		per.setId_persona(id);

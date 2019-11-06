@@ -35,13 +35,13 @@ public class RequisitoDaoImp implements RequisitoDao{
 	@Override
 	public int create(Requisito requisito) {
 		// TODO Auto-generated method stub
-		return jdbc.update("call pkg_crud_requisito.sp_add_requisito(?,?,?,?)",requisito.getNombre_requisito(), requisito.getEstado(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
+		return jdbc.update("call pkg_crud_requisito.sp_add_requisito(?,?,?)",requisito.getNombre_requisito(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
 	}
 
 	@Override
 	public int update(Requisito requisito) {
 		// TODO Auto-generated method stub
-		return jdbc.update("call pkg_crud_requisito.sp_update_requisito(?,?,?,?,?)",requisito.getId_requisito(),requisito.getNombre_requisito(), requisito.getEstado(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
+		return jdbc.update("call pkg_crud_requisito.sp_update_requisito(?,?,?,?)",requisito.getId_requisito(),requisito.getNombre_requisito(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
 	}
 
 	@Override

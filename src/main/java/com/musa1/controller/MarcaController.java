@@ -13,35 +13,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.TipoMantenimiento;
-import com.musa1.service.TipoMantenimientoService;
+import com.musa1.entity.Marca;
+import com.musa1.service.MarcaService;
+
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/tipo_mantenimiento")
-
-public class TipoMantenimientoController {
+@RequestMapping("/marca")
+public class MarcaController {
 	@Autowired
-	private TipoMantenimientoService tipo_mantenimientoService;
+	private MarcaService marcaService;
 	
 	@GetMapping("/")
-	public Map<String, Object> getall(){
-		return tipo_mantenimientoService.readAll();
-	}
-	@GetMapping("/{id}")
-	public Map<String, Object> getread(@PathVariable int id){
-		return tipo_mantenimientoService.read(id);
+	public Map<String, Object> get() {
+		return marcaService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody TipoMantenimiento tipo_mantenimiento) {
-		return tipo_mantenimientoService.create(tipo_mantenimiento);
-	}
-	@PutMapping("/{id}")
-	public int update(@RequestBody TipoMantenimiento tipo_mantenimiento, @PathVariable int id) {
-		tipo_mantenimiento.setId_tipo_mantenimiento(id);
-		return tipo_mantenimientoService.edit(tipo_mantenimiento);
+	public int save(@RequestBody Marca m) {
+		return marcaService.create(m);
 	}
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
-		return tipo_mantenimientoService.delete(id);
+		return marcaService.delete(id);
+	}
+	@GetMapping("/{id}")
+	public Map<String, Object> read(@PathVariable int id) {
+		return marcaService.read(id);
+	}
+	@PutMapping("/{id}")
+	public int update(@RequestBody Marca m, @PathVariable int id) {
+		m.setId_marca(id);
+		return marcaService.update(m);
 	}
 }

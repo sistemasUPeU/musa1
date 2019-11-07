@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 import com.musa1.dao.CursoConductorDao;
 import com.musa1.entity.CursoConductor;
 
+import ch.qos.logback.classic.db.SQLBuilder;
 import oracle.jdbc.internal.OracleTypes;
 
 @Repository
@@ -27,7 +28,7 @@ public class CursoConductorDaoImp implements CursoConductorDao {
 	@Override
 	public int create(CursoConductor cursoConductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?,?,?,?,?)",cursoConductor.getF_inicio(),cursoConductor.getF_fin(),cursoConductor.getEstado(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision(),cursoConductor.getId_curso(),cursoConductor.getId_persona());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?,?,?,?)",cursoConductor.getF_inicio(),cursoConductor.getF_fin(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision(),cursoConductor.getId_curso(),cursoConductor.getId_persona());
 	}
 
 	@Override
@@ -52,6 +53,17 @@ public class CursoConductorDaoImp implements CursoConductorDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_CURSO_CONDUCTOR").withCatalogName("pkg_curso_conductor")
 				.declareParameters(new SqlOutParameter("dato", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public Map<String, Object> read(int id) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_READ_CURSO_CONDUCTOR").withCatalogName("pkg_curso_conductor")
+				.declareParameters(new SqlOutParameter("dato", OracleTypes
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("idc", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("idc", id);
+		return simpleJdbcCall.execute(in);
 	}
 
 }

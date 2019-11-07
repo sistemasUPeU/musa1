@@ -70,4 +70,12 @@ public class VinculacionDaoImp implements VinculacionDao{
 		return jdbc.update("CALL PKG_CRUD_VINCULACION_BUS.sp_eliminar_vinculacion_bus(?)", id);
 	}
 
+	@Override
+	public Map<String, Object> listarInvolubradosBus(String placa) {
+		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_BUSCAR_BUS").withCatalogName("PKG_CRUD_VINCULACION_BUS")
+				.declareParameters(new SqlParameter("nro_placa", Types.VARCHAR), new SqlOutParameter("bus", OracleTypes.CURSOR), new SqlOutParameter("prop", OracleTypes.CURSOR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nro_placa", placa);
+		return call.execute(in);
+	}
+
 }

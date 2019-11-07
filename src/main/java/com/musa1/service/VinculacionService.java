@@ -6,7 +6,7 @@ import com.musa1.entity.Curso;
 import com.musa1.entity.Vinculacion;
 
 public interface VinculacionService {
-	public int eliminarVinculacionBus(int id);
+	public int eliminarVinculacionBus(String placa);
 	public Map<String, Object> createVinculacionConductor(Vinculacion vinculacion);
 	public Map<String, Object> readVinculacionConductor();
 	public Map<String, Object> crearVinculacionBus(Vinculacion e);

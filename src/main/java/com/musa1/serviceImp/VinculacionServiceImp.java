@@ -37,8 +37,8 @@ public class VinculacionServiceImp implements VinculacionService{
 		return dao.listarVinculacionBusPlaca(placa);
 	}
 	@Override
-	public int eliminarVinculacionBus(int id) {
-		return dao.eliminarVinculacionBus(id);
+	public int eliminarVinculacionBus(String placa) {
+		return dao.eliminarVinculacionBus(placa);
 	}
 	@Override
 	public Map<String, Object> listarInvolubradosBus(String placa) {

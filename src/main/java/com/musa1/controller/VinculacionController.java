@@ -102,8 +102,8 @@ public class VinculacionController {
 		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 	
-	@DeleteMapping("/bus/{idv}")
-	public int EliminarVinculacionRequisitoBus(@PathVariable int idv) {
-		return vinculacionService.eliminarVinculacionBus(idv);
+	@DeleteMapping("/bus/{placa}")
+	public int EliminarVinculacionRequisitoBus(@PathVariable String placa) {
+		return vinculacionService.eliminarVinculacionBus(placa);
 	}
 }

@@ -66,8 +66,8 @@ public class VinculacionDaoImp implements VinculacionDao{
 	}
 
 	@Override
-	public int eliminarVinculacionBus(int id) {
-		return jdbc.update("CALL PKG_CRUD_VINCULACION_BUS.sp_eliminar_vinculacion_bus(?)", id);
+	public int eliminarVinculacionBus(String placa) {
+		return jdbc.update("CALL PKG_CRUD_VINCULACION_BUS.sp_eliminar_vinculacion_bus(?)", placa);
 	}
 
 	@Override

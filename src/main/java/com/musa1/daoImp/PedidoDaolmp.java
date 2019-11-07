@@ -31,14 +31,14 @@ public class PedidoDaolmp implements PedidoDao{
 	@Override
 	public int edit(Pedido pedido) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_persona.sp_update_pedido(?,?,?,?,?,?,?)", pedido.getId_pedido(), pedido.getFecha_pedido(), pedido.getFecha_entrega(), pedido.getId_mantenimiento(), pedido.getPersona_autoriza(), pedido.getPersona_registra());
+		return jdbcTemplate.update("call pkg_crud_pedido.sp_update_pedido(?,?,?,?,?,?,?)", pedido.getId_pedido(), pedido.getFecha_pedido(), pedido.getFecha_entrega(), pedido.getId_mantenimiento(), pedido.getPersona_autoriza(), pedido.getPersona_registra());
 		
 		
 	}
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_pedido.sp_delete_persona(?)", id);
+		return jdbcTemplate.update("call pkg_crud_pedido.sp_delete_pedido(?)", id);
 		
 	}
 	@Override

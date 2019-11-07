@@ -43,4 +43,5 @@ public class Detalle_pedidoController {
 	public int delete(@PathVariable int id) {
 		return detalle_pedidoService.delete(id);
 	}
+	
 }

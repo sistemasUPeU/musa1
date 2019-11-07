@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,7 @@ import com.musa1.service.VinculacionService;
 
 import oracle.jdbc.proxy.annotation.Post;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/vinculacion")
 @RestController
 public class VinculacionController {
@@ -79,6 +81,11 @@ public class VinculacionController {
 		return vinculacionService.listarVinculacionBusPlaca(placa);
 	}
 	
+	@GetMapping("/bus/involucrados/{placa}")
+	public Map<String, Object> ListarInvolucradosBus(@PathVariable String placa){
+		return vinculacionService.listarInvolubradosBus(placa);
+	}
+	
 	@PostMapping("/bus")
 	public int RegistrarVinculacionBus( @RequestBody Vinculacion v) {
 		int idv = (int)vinculacionService.crearVinculacionBus(v).get("idv");
@@ -95,8 +102,8 @@ public class VinculacionController {
 		return vinculacionRequisitoService.CrearRequisitoBus(e, idv);
 	}
 	
-	@DeleteMapping("/bus/{idv}")
-	public int EliminarVinculacionRequisitoBus(@PathVariable int idv) {
-		return vinculacionService.eliminarVinculacionBus(idv);
+	@DeleteMapping("/bus/{placa}")
+	public int EliminarVinculacionRequisitoBus(@PathVariable String placa) {
+		return vinculacionService.eliminarVinculacionBus(placa);
 	}
 }

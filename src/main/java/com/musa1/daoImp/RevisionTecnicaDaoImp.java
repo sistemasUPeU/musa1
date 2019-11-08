@@ -59,7 +59,7 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_REVISION_TECNICA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_RDETALLE_REVISION_TECNICA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
 				.declareParameters(new SqlOutParameter("rev", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

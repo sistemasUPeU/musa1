@@ -26,7 +26,7 @@ public class ProductoDaoImp implements ProductoDao{
 	@Override
 	public int create(Producto producto) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_PRODUCTO.SP_INSERTAR_PRODUCTO(?,?,?,?,?,?)",producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getCodigo(),producto.getId_marca());
+		return jdbcTemplate.update("call PKG_CRUD_PRODUCTO.SP_INSERTAR_PRODUCTO(?,?,?,?,?,?)",producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getId_marca());
 	}
 
 	@Override

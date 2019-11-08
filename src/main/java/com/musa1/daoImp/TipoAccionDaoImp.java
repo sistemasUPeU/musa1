@@ -1,3 +1,4 @@
+
 package com.musa1.daoImp;
 
 import java.sql.Types;
@@ -27,12 +28,12 @@ public class TipoAccionDaoImp implements TipoAccionDao {
 	@Override
 	public int create(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_insertar_tipo_accion(?,?)", tipo_accion.getTipo_accion(),tipo_accion.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_insertar_tipo_accion(?)",tipo_accion.getNom_tipo_accion());
 	}
 	@Override
 	public int update(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_modificar_tipo_accion(?,?,?)", tipo_accion.getId_tipo_accion(),tipo_accion.getTipo_accion(),tipo_accion.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_modificar_tipo_accion(?,?,?)", tipo_accion.getId_tipo_accion(),tipo_accion.getNom_tipo_accion(),tipo_accion.getEstado());
 	}
 	@Override
 	public int delete(int id) {
@@ -43,10 +44,9 @@ public class TipoAccionDaoImp implements TipoAccionDao {
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall= new SimpleJdbcCall(jdbcTemplate).
-				withProcedureName("sq_read_tipo_accion").withCatalogName("pkg_crud_tipo_accion").
+				withProcedureName("sp_read_tipo_accion").withCatalogName("pkg_crud_tipo_accion").
 				declareParameters(new SqlOutParameter("tipa",OracleTypes.CURSOR, new ColumnMapRowMapper()),new SqlParameter("ta_id", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("ta_id" ,id);
-		
 		return simpleJdbcCall.execute(in);
 	}
 	@Override

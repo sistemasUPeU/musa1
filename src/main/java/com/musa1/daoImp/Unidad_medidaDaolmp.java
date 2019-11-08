@@ -51,9 +51,12 @@ public class Unidad_medidaDaolmp implements Unidad_medidaDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
+
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
 				("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
 				.declareParameters(new SqlOutParameter("uni_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("unid_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 	

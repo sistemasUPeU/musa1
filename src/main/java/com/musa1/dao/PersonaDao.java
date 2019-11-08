@@ -9,5 +9,6 @@ public interface PersonaDao {
 	public int edit(Persona persona);
 	public int delete(int id);
 	public Map<String, Object> read(int id);
+	public Map<String , Object> searchPersona(String nombre);
 	public Map<String, Object> readAll();
 }

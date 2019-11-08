@@ -1,6 +1,7 @@
 package com.musa1.daoImp;
 
 import java.sql.Types;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ import com.musa1.dao.BusDao;
 import com.musa1.entity.Bus;
 
 import oracle.jdbc.OracleTypes;
-@Repository
 
+@Repository
 public class BusDaoImp implements BusDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -26,21 +27,20 @@ public class BusDaoImp implements BusDao{
 	
 	@Override
 	public int create(Bus b) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_insert_bus(?,?,?,?,?,?,?,?,?,?,?)",b.getId_persona_propietario(),b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getPadron(),b.getEstado(),b.getModelo(),b.getAño_fabricacion(),b.getNro_serie(),b.getNro_asientos());
+		return jdbcTemplate.update("call pkg_crud_bus.sp_insert_bus(?,?,?,?,?,?,?,?,?,?,?)",b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getPadron(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos(),b.getId_persona_propietario());
 	}
 
 	@Override
 	public int update(Bus b) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_update_bus(?,?,?,?,?,?,?,?,?,?,?");
+		return jdbcTemplate.update("call pkg_crud_bus.sp_update_bus(?,?,?,?,?,?,?,?,?,?)",b.getId_bus(),b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos());
 		
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_delete_bus(?,?,?,?,?,?,?,?,?,?,?",id);
+		return jdbcTemplate.update("call pkg_crud_bus.sp_delete_bus(?)",id);
 	}
 
 	@Override

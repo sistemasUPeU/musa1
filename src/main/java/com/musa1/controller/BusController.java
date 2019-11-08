@@ -3,6 +3,7 @@ package com.musa1.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Bus;
 import com.musa1.service.BusService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/bus")
 public class BusController {
@@ -27,8 +29,8 @@ public class BusController {
 	}
 	
 	@PostMapping("/add")
-	public int agregar(@RequestBody Bus bus) {
-		return busService.create(bus);
+	public int agregar(@RequestBody Bus b) {
+		return busService.create(b);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -42,9 +44,9 @@ public class BusController {
 	}
 	
 	@PutMapping("/{id}")
-	public int update(@RequestBody Bus bus, @PathVariable int id) {
-		bus.setId_bus(id);
-		return busService.update(bus);
+	public int update(@RequestBody Bus b, @PathVariable int id) {
+		b.setId_bus(id);
+		return busService.update(b);
 	}
 	
 }

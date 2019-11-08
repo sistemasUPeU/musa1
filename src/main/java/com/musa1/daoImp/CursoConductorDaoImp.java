@@ -28,7 +28,7 @@ public class CursoConductorDaoImp implements CursoConductorDao {
 	@Override
 	public int create(CursoConductor cursoConductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?,?,?,?)",cursoConductor.getF_inicio(),cursoConductor.getF_fin(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision(),cursoConductor.getId_curso(),cursoConductor.getId_persona());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_add_curso_conductor(?,?,?,?)",cursoConductor.getF_inicio(),cursoConductor.getF_fin(),cursoConductor.getId_curso(),cursoConductor.getId_persona());
 	}
 
 	@Override

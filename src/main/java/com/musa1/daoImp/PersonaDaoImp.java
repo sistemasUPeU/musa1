@@ -56,6 +56,15 @@ public class PersonaDaoImp implements PersonaDao {
 				.declareParameters(new SqlOutParameter("pers", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+	@Override
+	public Map<String, Object> searchPersona(String nombre) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withFunctionName("FN_SEARCH_PERSONA")
+				.declareParameters(new SqlParameter("nombre", Types.VARCHAR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nombre", nombre);
+		return simpleJdbcCall.execute(in);
+	}
 	
 	
 }

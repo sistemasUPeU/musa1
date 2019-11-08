@@ -35,9 +35,26 @@ public class VinculacionRequisitoDaoImp implements VinculacionRequisitoDao{
 
 	@Override
 	public Map<String, Object> ListarVinculacionRequisito(int idv) {
-		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_vrequisito").withCatalogName("CALL PKG_CRUD_VREQUISITO")
-				.declareParameters(new SqlParameter("idv", Types.INTEGER), new SqlParameter("tr", Types.INTEGER), new SqlOutParameter("vrs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_vrequisito").withCatalogName("PKG_CRUD_VREQUISITO")
+				.declareParameters(new SqlParameter("idv", Types.INTEGER), new SqlParameter("tr", Types.VARCHAR), new SqlOutParameter("vrs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("idv", idv).addValue("tr", "Bus");
 		return  call.execute(in);
+	}
+
+	@Override
+	public int createRequisitoConductor(VinculacionRequisito vinculacionRequisito) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Map<String, Object> readVinculacionRequisitoConductor(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public int modificarVinculacionRequisito(VinculacionRequisito e) {
+		return jdbc.update("CALL PKG_CRUD_VREQUISITO.sp_update_vrequisito(?, ?, ?, ?, ?)", e.getId_vinculacion_requisito(), e.getUrl(), e.getEstado(), e.getId_curso_conductor(), e.getFecha_vencimiento_doc());
 	}
 }

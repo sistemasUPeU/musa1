@@ -2,11 +2,15 @@ package com.musa1.serviceImp;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.musa1.dao.ProductoDao;
 import com.musa1.entity.Producto;
 import com.musa1.service.ProductoService;
-
+@Service
 public class ProductoServiceImp implements ProductoService{
+	@Autowired
 	private ProductoDao productoDao;
 	@Override
 	public int create(Producto producto) {
@@ -37,5 +41,6 @@ public class ProductoServiceImp implements ProductoService{
 		// TODO Auto-generated method stub
 		return productoDao.readAll();
 	}
+
 
 }

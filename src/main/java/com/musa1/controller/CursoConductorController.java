@@ -26,11 +26,15 @@ public class CursoConductorController {
 	public Map<String, Object> get() {
 		return cursoConductorService.readAll();
 	}
+	@GetMapping("/{id}")
+	public Map<String, Object> read(@PathVariable int id) {
+		return cursoConductorService.read(id);
+	}
 	@PostMapping("/add")
 	public int save(@RequestBody CursoConductor cursoConductor) {
 		return cursoConductorService.create(cursoConductor);
 	}
-	@GetMapping("/{nombre}")
+	@GetMapping("/search/{nombre}")
 	public Map<String, Object> search(@PathVariable String nombre) {
 		return cursoConductorService.searchCursoConductor(nombre);
 	}

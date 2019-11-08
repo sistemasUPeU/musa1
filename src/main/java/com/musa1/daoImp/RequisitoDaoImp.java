@@ -26,21 +26,22 @@ public class RequisitoDaoImp implements RequisitoDao{
 
 	@Override
 	public Map<String, Object> listarRequisitosBus() {
-		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_requisito_bus").withCatalogName("pkg_crud_vinculacion_bus")
-				.declareParameters(new SqlOutParameter("reqs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
-		return call.execute();
+		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_requisito_tipo").withCatalogName("pkg_crud_requisito")
+				.declareParameters(new SqlParameter("tr", Types.VARCHAR), new SqlOutParameter("reqs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("tr", "Bus");
+		return call.execute(in);
 	}
 
 	@Override
 	public int create(Requisito requisito) {
 		// TODO Auto-generated method stub
-		return jdbc.update("call pkg_crud_requisito.sp_add_requisito(?,?,?,?)",requisito.getNombre_requisito(), requisito.getEstado(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
+		return jdbc.update("call pkg_crud_requisito.sp_add_requisito(?,?,?)",requisito.getNombre_requisito(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
 	}
 
 	@Override
 	public int update(Requisito requisito) {
 		// TODO Auto-generated method stub
-		return jdbc.update("call pkg_crud_requisito.sp_update_requisito(?,?,?,?,?)",requisito.getId_requisito(),requisito.getNombre_requisito(), requisito.getEstado(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
+		return jdbc.update("call pkg_crud_requisito.sp_update_requisito(?,?,?,?)",requisito.getId_requisito(),requisito.getNombre_requisito(), requisito.getId_tipo_requisito(), requisito.getObligatorio());
 	}
 
 	@Override

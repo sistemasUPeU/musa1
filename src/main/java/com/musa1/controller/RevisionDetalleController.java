@@ -2,6 +2,7 @@ package com.musa1.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.RevisionDetalle;
+import com.musa1.entity.RevisionTecnica;
 import com.musa1.service.RevisionDetalleService;
 
 @RestController
 @RequestMapping("/revisiondetalle")
 public class RevisionDetalleController {
+	@Autowired
+	
 	private RevisionDetalleService revisiondetalleService;
 
 	@GetMapping("/")
@@ -39,8 +43,8 @@ public class RevisionDetalleController {
 	}
 	
 	@PutMapping("/{id}")
-	public int update(@RequestBody RevisionDetalle rev, @PathVariable int id) {
-		rev.setId_revision_detalle(id);
-		return revisiondetalleService.update(rev);
+	public int update(@RequestBody RevisionDetalle revisiondetalle  , @PathVariable int id) {
+		revisiondetalle.setId_revision_detalle(id);
+		return revisiondetalleService.edit(revisiondetalle);
 	}
 } 

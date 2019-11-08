@@ -76,9 +76,9 @@ public class VinculacionController {
 		return vinculacionRequisitoService.ListarVinculacionRequisito(idv);
 	}
 	
-	@GetMapping("/bus/{placa}")
-	public Map<String, Object> ListarVistaVinculacionBusPlaca(@PathVariable String placa) {
-		return vinculacionService.listarVinculacionBusPlaca(placa);
+	@GetMapping("/bus/{id}")
+	public Map<String, Object> ListarVistaVinculacionBusPlaca(@PathVariable int id) {
+		return vinculacionService.listarVinculacionBusId(id);
 	}
 	
 	@GetMapping("/bus/involucrados/{placa}")

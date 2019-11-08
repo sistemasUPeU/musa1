@@ -73,8 +73,16 @@ public class VinculacionDaoImp implements VinculacionDao{
 	@Override
 	public Map<String, Object> listarInvolubradosBus(String placa) {
 		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_BUSCAR_BUS").withCatalogName("PKG_CRUD_VINCULACION_BUS")
-				.declareParameters(new SqlParameter("nro_placa", Types.VARCHAR), new SqlOutParameter("bus", OracleTypes.CURSOR), new SqlOutParameter("prop", OracleTypes.CURSOR));
+				.declareParameters(new SqlParameter("nro_placa", Types.VARCHAR), new SqlOutParameter("bus", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlOutParameter("prop", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("nro_placa", placa);
+		return call.execute(in);
+	}
+
+	@Override
+	public Map<String, Object> listarVinculacionBusId(int id) {
+		call = new SimpleJdbcCall(jdbc).withProcedureName("SP_LISTAR_VINCULACION_ID").withCatalogName("PKG_CRUD_VINCULACION_BUS")
+				.declareParameters(new SqlParameter("id", OracleTypes.NUMBER), new SqlOutParameter("v", OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlOutParameter("vrs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		SqlParameterSource in = new MapSqlParameterSource ("id", id);
 		return call.execute(in);
 	}
 

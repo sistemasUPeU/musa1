@@ -4,9 +4,9 @@ public class TipoAccion {
 	private int id_tipo_accion;
 	private String tipo_accion;
 	private String estado;
-	
 	public TipoAccion() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 	public TipoAccion(int id_tipo_accion, String tipo_accion, String estado) {
 		super();
@@ -32,6 +32,5 @@ public class TipoAccion {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
 
 }

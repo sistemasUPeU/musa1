@@ -34,7 +34,7 @@ public class CursoConductorDaoImp implements CursoConductorDao {
 	@Override
 	public int update(CursoConductor cursoConductor) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?,?)",cursoConductor.getId_curso_conductor(),cursoConductor.getEstado(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision());
+		return jdbcTemplate.update("call pkg_curso_conductor.sp_update_curso_conductor(?,?,?,?)",cursoConductor.getId_curso_conductor(),cursoConductor.getCarnet_c(),cursoConductor.getF_caducidad(),cursoConductor.getF_emision());
 	}
 
 	@Override
@@ -61,8 +61,8 @@ public class CursoConductorDaoImp implements CursoConductorDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withProcedureName("SP_READ_CURSO_CONDUCTOR").withCatalogName("pkg_curso_conductor")
 				.declareParameters(new SqlOutParameter("dato", OracleTypes
-						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("idc", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("idc", id);
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("idcc", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("idcc", id);
 		return simpleJdbcCall.execute(in);
 	}
 

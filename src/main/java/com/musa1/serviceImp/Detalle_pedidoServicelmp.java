@@ -44,6 +44,12 @@ public class Detalle_pedidoServicelmp implements Detalle_pedidoService{
 		// TODO Auto-generated method stub
 		return detalle_pedidoDao.readAll();
 	}
+
+	@Override
+	public Map<String, Object> read_detalle(int id) {
+		// TODO Auto-generated method stub
+		return detalle_pedidoDao.read_detalle(id);
+	}
 	
 	
 

@@ -1,6 +1,6 @@
 package com.musa1.controller;
 
-import java.util.List;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,22 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Requisito;
 import com.musa1.entity.Vinculacion;
 import com.musa1.entity.VinculacionRequisito;
-import com.musa1.service.BusService;
-import com.musa1.service.PersonaService;
 import com.musa1.service.RequisitoService;
 import com.musa1.service.VinculacionRequisitoService;
 import com.musa1.service.VinculacionService;
 
-import oracle.jdbc.proxy.annotation.Post;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/vinculacion")
@@ -37,10 +31,6 @@ public class VinculacionController {
 	private VinculacionRequisitoService vinculacionRequisitoService;
 	@Autowired
 	private RequisitoService requisitoService;
-	@Autowired
-	private BusService busService;
-	@Autowired
-	private PersonaService personaService;
 	
 	@GetMapping("/")
 	public int jorge() {
@@ -76,9 +66,9 @@ public class VinculacionController {
 		return vinculacionRequisitoService.ListarVinculacionRequisito(idv);
 	}
 	
-	@GetMapping("/bus/{placa}")
-	public Map<String, Object> ListarVistaVinculacionBusPlaca(@PathVariable String placa) {
-		return vinculacionService.listarVinculacionBusPlaca(placa);
+	@GetMapping("/bus/{id}")
+	public Map<String, Object> ListarVistaVinculacionBusId(@PathVariable int id) {
+		return vinculacionService.listarVinculacionBusId(id);
 	}
 	
 	@GetMapping("/bus/involucrados/{placa}")
@@ -95,6 +85,16 @@ public class VinculacionController {
 	@PostMapping("/requisito")
 	public int ModificarVinculacionRequisito(@RequestBody VinculacionRequisito e) {
 		return vinculacionRequisitoService.modificarVinculacionRequisito(e);
+	}
+	
+	@PostMapping("/bus/update-vinculacion")
+	public int ModificarVinculacionBus(@RequestBody Vinculacion e) {
+		return vinculacionService.modificarVinculacionBus(e);
+	}
+	
+	@PostMapping("/bus/update-vrequisito")
+	public int ModificarVrequisitoBus(@RequestBody VinculacionRequisito e) {
+		return vinculacionRequisitoService.modificarVrequisitoBus(e);
 	}
 	
 	@PutMapping("/bus/{idv}")

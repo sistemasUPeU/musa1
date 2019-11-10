@@ -57,4 +57,9 @@ public class VinculacionRequisitoDaoImp implements VinculacionRequisitoDao{
 	public int modificarVinculacionRequisito(VinculacionRequisito e) {
 		return jdbc.update("CALL PKG_CRUD_VREQUISITO.sp_update_vrequisito(?, ?, ?, ?, ?)", e.getId_vinculacion_requisito(), e.getUrl(), e.getEstado(), e.getId_curso_conductor(), e.getFecha_vencimiento_doc());
 	}
+
+	@Override
+	public int modificarVrequisitoBus(VinculacionRequisito e) {
+		return jdbc.update("CALL PKG_CRUD_VREQUISITO.sp_modificar_vrequisito(?, ?, ?, ?)", e.getId_vinculacion_requisito(), e.getUrl(), e.getEstado(), e.getFecha_vencimiento_doc());
+	}
 }

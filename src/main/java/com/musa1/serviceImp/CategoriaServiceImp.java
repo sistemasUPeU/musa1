@@ -37,4 +37,10 @@ public class CategoriaServiceImp implements CategoriaService{
 		return categoriaDao.readAll();
 	}
 
+	@Override
+	public Map<String, Object> read(int id) {
+		// TODO Auto-generated method stub
+		return categoriaDao.read(id);
+	}
+
 }

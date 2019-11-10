@@ -44,6 +44,14 @@ public class VinculacionServiceImp implements VinculacionService{
 	public Map<String, Object> listarInvolubradosBus(String placa) {
 		return dao.listarInvolubradosBus(placa);
 	}
+	@Override
+	public Map<String, Object> listarVinculacionBusId(int id) {
+		return dao.listarVinculacionBusId(id);
+	}
+	@Override
+	public int modificarVinculacionBus(Vinculacion e) {
+		return dao.modificarVinculacionBus(e);
+	}
 
 }
 

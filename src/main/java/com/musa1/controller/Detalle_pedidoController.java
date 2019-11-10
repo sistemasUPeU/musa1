@@ -28,7 +28,7 @@ public class Detalle_pedidoController {
 	}
 	@GetMapping("/{id}")
 	public Map<String, Object> getread(@PathVariable int id){
-		return detalle_pedidoService.read(id);
+		return detalle_pedidoService.read_detalle(id);
 	}
 	@PostMapping("/add")
 	public int save(@RequestBody Detalle_pedido detalle_pedido) {

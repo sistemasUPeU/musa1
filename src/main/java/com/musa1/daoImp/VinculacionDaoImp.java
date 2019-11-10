@@ -86,4 +86,9 @@ public class VinculacionDaoImp implements VinculacionDao{
 		return call.execute(in);
 	}
 
+	@Override
+	public int modificarVinculacionBus(Vinculacion e) {
+		return jdbc.update("CALL PKG_CRUD_VINCULACION_BUS.sp_modificar_vinculacion(?, ?, ?, ?)", e.getId_vinculacion(), e.getF_emision(), e.getF_termino(), e.getEstado());
+	}
+
 }

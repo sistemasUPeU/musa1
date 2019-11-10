@@ -53,11 +53,18 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_readall_detalle_pedido").withCatalogName("pkg_crud_detalle_pedido")
-				.declareParameters(new SqlOutParameter("deta_pedi", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_DETALLE_FECHA_PEDIDO").withCatalogName("PKG_DETALLE_PEDIDO")
+				.declareParameters(new SqlOutParameter("LIST_FECHA", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
-	
-	
+	@Override
+	public Map<String, Object> read_detalle(int id) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_DETALLE_OJITO").withCatalogName("PKG_DETALLE_PEDIDO")
+				.declareParameters(new SqlOutParameter("LIST_DETALLE",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("IDP", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("IDP", id);
+		return simpleJdbcCall.execute(in);
+	}
 
 }

@@ -67,7 +67,7 @@ public class VinculacionController {
 	}
 	
 	@GetMapping("/bus/{id}")
-	public Map<String, Object> ListarVistaVinculacionBusPlaca(@PathVariable int id) {
+	public Map<String, Object> ListarVistaVinculacionBusId(@PathVariable int id) {
 		return vinculacionService.listarVinculacionBusId(id);
 	}
 	

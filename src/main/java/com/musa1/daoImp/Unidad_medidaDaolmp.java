@@ -42,18 +42,50 @@ public class Unidad_medidaDaolmp implements Unidad_medidaDao{
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+<<<<<<< HEAD
 				.withProcedureName("SP_READ_UNIDAD_MEDIDA").withCatalogName("PKG_CRUD_UNIDAD_MEDIDA")
 				.declareParameters(new SqlOutParameter("LIS_UM", OracleTypes
 						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("UM_ID", Types.INTEGER));
+=======
+				.withProcedureName("SP_READ_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("UM_ID", OracleTypes
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("LIS_UM", Types.INTEGER));
+>>>>>>> 28818b0bf7327bccd9cf82174721683f4f223739
 		SqlParameterSource in = new MapSqlParameterSource().addValue("LIS_UM", id);
 		return simpleJdbcCall.execute(in);
 	}
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_UNIDAD_MEDIDA").withCatalogName("PKG_CRUD_UNIDAD_MEDIDA")
 				.declareParameters(new SqlOutParameter("LIS_UM", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+=======
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("unid_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
+				("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("uni_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+
+=======
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
+				("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("uni_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("unid_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+>>>>>>> prueba
+>>>>>>> 28818b0bf7327bccd9cf82174721683f4f223739
 		return simpleJdbcCall.execute();
+=======
+				simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
+				("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("UM_ID", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				return simpleJdbcCall.execute();
+>>>>>>> prueba
 	}
 	
 	

@@ -8,5 +8,6 @@ public interface CategoriaService {
 	public int create(Categoria categoria);
 	public int update(Categoria categoria);
 	public int delete(int id);
+	Map<String, Object> read(int id);
 	Map<String, Object> readAll();
 }

@@ -44,5 +44,11 @@ public class CategoriaController {
 		c.setId_categoria(id);
 		return categoriaService.update(c);
 	}
+	
+	@GetMapping("/{id}")
+	public Map<String, Object> read(@PathVariable int id){
+		return categoriaService.read(id);
+	}
+	
 }
 

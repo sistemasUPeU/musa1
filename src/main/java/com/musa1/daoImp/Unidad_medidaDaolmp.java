@@ -43,15 +43,16 @@ public class Unidad_medidaDaolmp implements Unidad_medidaDao{
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withProcedureName("SP_READ_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
-				.declareParameters(new SqlOutParameter("unid_med", OracleTypes
-						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("UM_ID", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("UM_ID", id);
+				.declareParameters(new SqlOutParameter("UM_ID", OracleTypes
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("LIS_UM", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("LIS_UM", id);
 		return simpleJdbcCall.execute(in);
 	}
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
 				.declareParameters(new SqlOutParameter("unid_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
@@ -68,6 +69,12 @@ public class Unidad_medidaDaolmp implements Unidad_medidaDao{
 				.declareParameters(new SqlOutParameter("unid_med", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 >>>>>>> prueba
 		return simpleJdbcCall.execute();
+=======
+				simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
+				("SP_READALL_UNIDAD_MEDIDA").withCatalogName("pkg_crud_unidad_medida")
+				.declareParameters(new SqlOutParameter("UM_ID", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+				return simpleJdbcCall.execute();
+>>>>>>> prueba
 	}
 	
 	

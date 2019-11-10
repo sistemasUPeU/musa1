@@ -28,27 +28,35 @@ public class CategoriaDaoImp implements CategoriaDao{
 	@Override
 	public int create(Categoria c) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_categoria.sp_insertar_categoria(?)",c.getNombre_categoria());
+		return jdbcTemplate.update("call PKG_CRUD_CATEGORIA.sp_insertar_categoria(?)",c.getNombre_categoria());
 	}
 
 	@Override
 	public int update(Categoria c) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		return jdbcTemplate.update("call pkg_crud_categoria.SP_ACTUALIZAR_CATEGORIA(?,?)",c.getId_categoria(),c.getNombre_categoria());
+=======
+		return jdbcTemplate.update("call PKG_CRUD_CATEGORIA.sp_modificar_categoria",c.getNombre_categoria());
+>>>>>>> prueba3
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		return jdbcTemplate.update("call pkg_crud_categoria.sp_eliminar_categoria(?)",id);
+=======
+		return jdbcTemplate.update("call PKG_CRUD_CATEGORIA.sp_eliminar_categoria",id);
+>>>>>>> prueba3
 	}
 
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall= new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_readAll_categoria").withCatalogName("pkg_crud_categoria")
-				.declareParameters(new SqlOutParameter("cat",OracleTypes.CURSOR));
+		simpleJdbcCall= new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_CATEGORIA").withCatalogName("PKG_CRUD_CATEGORIA")
+				.declareParameters(new SqlOutParameter("LIS_CAT",OracleTypes.CURSOR));
 		return simpleJdbcCall.execute();
 	}
 

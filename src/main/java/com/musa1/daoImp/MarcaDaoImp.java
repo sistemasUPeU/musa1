@@ -27,25 +27,29 @@ public class MarcaDaoImp implements MarcaDao{
 	@Override
 	public int create(Marca m) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PK_CRUD_MARCA.insertar_marca(?)",m.getNombre_marca());
+		return jdbcTemplate.update("call PKG_CRUD_MARCA.insertar_marca(?)",m.getNombre_marca());
 	}
 
 	@Override
 	public int update(Marca m) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		return jdbcTemplate.update("call PK_CRUD_MARCA.ACTUALIZAR_MARCA(?,?)",m.getId_marca(),m.getNombre_marca());
+=======
+		return jdbcTemplate.update("call PKG_CRUD_MARCA.modificar_marca(?)",m.getNombre_marca());
+>>>>>>> prueba3
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PK_CRUD_MARCA.ELIMINAR_MARCA(?)",id);	}
+		return jdbcTemplate.update("call PKG_CRUD_MARCA.ELIMINAR_MARCA(?)",id);	}
 	
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("SP_READ_MARCA").withCatalogName("PK_CRUD_MARCA")
+				.withProcedureName("SP_READ_MARCA").withCatalogName("PKG_CRUD_MARCA")
 				.declareParameters(new SqlOutParameter("LIS_MAR ", OracleTypes
 						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("MAR_ID", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("MAR_ID", id);
@@ -55,8 +59,8 @@ public class MarcaDaoImp implements MarcaDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_MARCA").withCatalogName("PK_CRUD_MARCA")
-				.declareParameters(new SqlOutParameter("m", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_MARCA").withCatalogName("PKG_CRUD_MARCA")
+				.declareParameters(new SqlOutParameter("LIS_MAR", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 

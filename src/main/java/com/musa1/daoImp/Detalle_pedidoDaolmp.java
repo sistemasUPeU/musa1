@@ -33,7 +33,7 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 	@Override
 	public int update(Detalle_pedido detalle_pedido) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("cal pkg_crud_detalle_pedido.sp_modificar_detalle_pedido (?,?,?)", detalle_pedido.getId_detalle_pedido(), detalle_pedido.getId_pedido(), detalle_pedido.getId_producto());
+		return jdbcTemplate.update("call PKG_CRUD_PEDIDO.SP_MODIFICAR_PEDIDO (?,?,?)", detalle_pedido.getId_detalle_pedido(), detalle_pedido.getId_pedido(), detalle_pedido.getId_producto());
 	}
 	@Override
 	public int delete(int id) {
@@ -65,6 +65,12 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 				.declareParameters(new SqlOutParameter("LIST_DETALLE",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("IDP", Types.INTEGER));
 				SqlParameterSource in =new MapSqlParameterSource().addValue("IDP", id);
 		return simpleJdbcCall.execute(in);
+	}
+	
+	@Override
+	public int updatestate(int id) {
+		System.out.println(id);
+		return jdbcTemplate.update("call PKG_DETALLE_PEDIDO.sp_actualizar_estado(?)", id);
 	}
 
 }

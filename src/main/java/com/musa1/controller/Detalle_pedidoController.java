@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.Detalle_pedido;
+import com.musa1.entity.Pedido;
 import com.musa1.service.Detalle_pedidoService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -35,6 +36,13 @@ public class Detalle_pedidoController {
 	public int save(@RequestBody Detalle_pedido detalle_pedido) {
 		return detalle_pedidoService.create(detalle_pedido);
 	}
+	
+	@PutMapping("/status/{id}") 
+	public int updatestatus( @RequestBody Pedido pedido ,@PathVariable int id) {
+		return detalle_pedidoService.updatestatus(id);
+	}
+	
+	
 	@PutMapping("/{id}")
 	public int update(@RequestBody Detalle_pedido detalle_pedido, @PathVariable int id) {
 		detalle_pedido.setId_detalle_pedido(id);

@@ -1,5 +1,6 @@
 package com.musa1.controller;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,9 @@ public class SeguridadController {
 	@GetMapping("/login")
 	public Usuario login(@PathVariable String user) {
 		return seguridadService.validateUser(user);
+	}
+	@PostMapping("/validar")
+	public Map<String, Object> validar(@RequestBody Usuario usuario) {
+		return  seguridadService.validarUser(usuario.getNom_usuario(), usuario.getContrasena());
 	}
 }

@@ -34,21 +34,13 @@ public class CategoriaDaoImp implements CategoriaDao{
 	@Override
 	public int update(Categoria c) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		return jdbcTemplate.update("call pkg_crud_categoria.SP_ACTUALIZAR_CATEGORIA(?,?)",c.getId_categoria(),c.getNombre_categoria());
-=======
-		return jdbcTemplate.update("call PKG_CRUD_CATEGORIA.sp_modificar_categoria",c.getNombre_categoria());
->>>>>>> prueba3
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		return jdbcTemplate.update("call pkg_crud_categoria.sp_eliminar_categoria(?)",id);
-=======
-		return jdbcTemplate.update("call PKG_CRUD_CATEGORIA.sp_eliminar_categoria",id);
->>>>>>> prueba3
 	}
 
 

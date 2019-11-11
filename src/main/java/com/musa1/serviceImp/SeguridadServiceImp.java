@@ -44,4 +44,10 @@ public class SeguridadServiceImp implements SeguridadService {
 		return seguridadDao.readUsuarios();
 	}
 
+	@Override
+	public Map<String, Object> validarUser(String user, String pass) {
+		// TODO Auto-generated method stub
+		return seguridadDao.validarUser(user, pass);
+	}
+
 }

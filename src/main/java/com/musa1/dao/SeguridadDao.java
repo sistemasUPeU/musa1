@@ -8,6 +8,7 @@ import com.musa1.entity.UsuarioRol;
 public interface SeguridadDao {
 	public Map<String, Object> readUsuarios();
 	public Map<String, Object> createUser(Usuario usuario);
+	public Map<String, Object> validarUser(String user, String pass);
 	public int updatePassword(Usuario usuario);
 	public int giveRol(UsuarioRol usuarioRol);
 	

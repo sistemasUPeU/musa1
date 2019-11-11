@@ -13,51 +13,48 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.MarcaDao;
-import com.musa1.entity.Marca;
+import com.musa1.dao.ReporteDao;
+import com.musa1.entity.Reporte;
 
 import oracle.jdbc.internal.OracleTypes;
-
 @Repository
-public class MarcaDaoImp implements MarcaDao{
+public class ReporteDaolmp implements ReporteDao{
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
-
 	@Override
-	public int create(Marca m) {
+	public int create(Reporte reporte) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_MARCA.insertar_marca(?)",m.getNombre_marca());
+		return jdbcTemplate.update("call PKG_CRUD_REPORTE.SP_INSERTAR_REPORTE(?)",reporte.getReporte() );
 	}
-
 	@Override
-	public int update(Marca m) {
+	public int edit(Reporte reporte) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PK_CRUD_MARCA.ACTUALIZAR_MARCA(?,?)",m.getId_marca(),m.getNombre_marca());
+		return jdbcTemplate.update("call PKG_CRUD_REPORTE.SP_ACTUALIZAR_REPORTE(?,?)", reporte.getIdreporte(), reporte.getReporte());
 	}
-
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_MARCA.ELIMINAR_MARCA(?)",id);	}
-	
+		return jdbcTemplate.update("call PKG_CRUD_REPORTE.SP_ELIMINAR_REPORTE(?)",id);
+	}
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("SP_READ_MARCA").withCatalogName("PKG_CRUD_MARCA")
-				.declareParameters(new SqlOutParameter("LIS_MAR ", OracleTypes
-						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("MAR_ID", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("MAR_ID", id);
+		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_READ_REPORTE").withCatalogName("PKG_CRUD_REPORTE")
+				.declareParameters(new SqlOutParameter("LIS_REPOR",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("REPOR_ID", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("REPOR_ID", id);
 		return simpleJdbcCall.execute(in);
 	}
-
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_MARCA").withCatalogName("PKG_CRUD_MARCA")
-				.declareParameters(new SqlOutParameter("LIS_MAR", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_REPORTE").withCatalogName("PKG_CRUD_REPORTE")
+				.declareParameters(new SqlOutParameter("LIS_REPOR", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+	
+	
 
 }

@@ -54,6 +54,16 @@ public class SeguridadDaoImp implements SeguridadDao{
 				.declareParameters(new SqlOutParameter("users", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+	
+	@Override
+	public Map<String, Object> validarUser(String nom_usuario, String contrasena) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_VALIDATE_USER").withCatalogName("PKG_SEGURIDAD")
+				.declareParameters(new SqlParameter("nom_user", Types.VARCHAR), new SqlParameter("pass", Types.VARCHAR), new SqlOutParameter("usuario", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nom_user", nom_usuario).addValue("pass", contrasena);
+		System.out.println(nom_usuario+contrasena);
+		return simpleJdbcCall.execute(in);
+	}
 
 
 }

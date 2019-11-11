@@ -38,7 +38,7 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("cal pkg_crud_detalle_pedido.sp_eliminar_detalle_pedido (?)", id);
+		return jdbcTemplate.update("call pkg_crud_pedido.sp_eliminar_pedido(?)", id);
 	}
 	@Override
 	public Map<String, Object> read(int id) {

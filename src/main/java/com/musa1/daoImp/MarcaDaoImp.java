@@ -33,11 +33,7 @@ public class MarcaDaoImp implements MarcaDao{
 	@Override
 	public int update(Marca m) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		return jdbcTemplate.update("call PK_CRUD_MARCA.ACTUALIZAR_MARCA(?,?)",m.getId_marca(),m.getNombre_marca());
-=======
-		return jdbcTemplate.update("call PKG_CRUD_MARCA.modificar_marca(?)",m.getNombre_marca());
->>>>>>> prueba3
 	}
 
 	@Override

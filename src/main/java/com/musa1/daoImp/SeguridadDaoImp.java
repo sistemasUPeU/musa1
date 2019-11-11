@@ -61,7 +61,6 @@ public class SeguridadDaoImp implements SeguridadDao{
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_VALIDATE_USER").withCatalogName("PKG_SEGURIDAD")
 				.declareParameters(new SqlParameter("nom_user", Types.VARCHAR), new SqlParameter("pass", Types.VARCHAR), new SqlOutParameter("usuario", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("nom_user", nom_usuario).addValue("pass", contrasena);
-		System.out.println(nom_usuario+contrasena);
 		return simpleJdbcCall.execute(in);
 	}
 

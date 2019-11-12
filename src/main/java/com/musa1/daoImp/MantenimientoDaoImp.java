@@ -27,7 +27,7 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 	@Override
 	public int create(Mantenimiento mantenimiento) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_INSERTAR_MANTENIMIENTO (?,?,?,?)", mantenimiento.getObservacion(), mantenimiento.getId_bus(), mantenimiento.getId_tipo_mantenimiento(), mantenimiento.getId_empleado_registra());
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_INSERTAR_MANTENIMIENTO (?,?)",mantenimiento.getId_bus(), mantenimiento.getId_tipo_mantenimiento());
 	}
 	@Override
 	public int update(Mantenimiento mantenimiento) {
@@ -56,5 +56,15 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_MANT").withCatalogName("PKG_CRUD_MANTENIMIENTO")
 				.declareParameters(new SqlOutParameter("MANT", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+	@Override
+	public Map<String, Object> read_id_bus(String padron) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_ID_BUS").withCatalogName("PKG_CRUD_MANTENIMIENTO")
+				.declareParameters(new SqlOutParameter("SALIDA_BUS", OracleTypes
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("PADRON_ENVIADO", Types.VARCHAR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("PADRON_ENVIADO", padron);
+		return simpleJdbcCall.execute(in);
 	}
 }

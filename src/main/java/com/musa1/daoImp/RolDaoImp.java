@@ -24,7 +24,7 @@ public class RolDaoImp implements RolDao {
 	@Override
 	public int create(Rol rol) {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PKG_CRUD_ROL.SP_ADD_ROL(?)",rol.getNom_rol());
 	}
 
 	@Override

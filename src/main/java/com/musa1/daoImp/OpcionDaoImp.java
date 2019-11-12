@@ -26,9 +26,12 @@ public class OpcionDaoImp implements OpcionDao{
 	private SimpleJdbcCall simpleJdbcCall;
 	
 	@Override
-	public int create(Opcion opcion) {
+	public Map<String, Object> create(Opcion opcion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call (?,?,?,?,?,?)",opcion.getPadre_id(),opcion.getNom_opcion(),opcion.getDescripcion(),opcion.getEnlace(),opcion.getOrden(),opcion.getEstado());
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_ADD_OPCION").withCatalogName("PKG_CRUD_OPCION")
+				.declareParameters(new SqlParameter("nom_opc", Types.VARCHAR), new SqlParameter("descr", Types.VARCHAR), new SqlParameter("enl",Types.VARCHAR), new SqlParameter("ord",Types.INTEGER), new SqlOutParameter("ido", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nom_opc", opcion.getNom_opcion()).addValue("descr", opcion.getDescripcion()).addValue("enl", opcion.getEnlace()).addValue("ord", opcion.getOrden());
+		return simpleJdbcCall.execute(in);
 	}
 
 	@Override
@@ -40,7 +43,7 @@ public class OpcionDaoImp implements OpcionDao{
 	@Override
 	public int edit(Opcion opcion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call (?,?,?,?,?,?,?)", opcion.getId_opcion(),opcion.getPadre_id(),opcion.getNom_opcion(),opcion.getDescripcion(),opcion.getEnlace(),opcion.getOrden(),opcion.getEstado());
+		return jdbcTemplate.update("call PKG_CRUD_OPCION.SP_UPDATE_OPCION(?,?,?,?,?,?)", opcion.getId_opcion(),opcion.getPadre_id(),opcion.getNom_opcion(),opcion.getDescripcion(),opcion.getEnlace(),opcion.getOrden());
 	}
 
 	@Override
@@ -53,7 +56,7 @@ public class OpcionDaoImp implements OpcionDao{
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("").withCatalogName("")
+				.withProcedureName("SP_READALL_OPCION").withCatalogName("PKG_CRUD_OPCION")
 				.declareParameters(new SqlOutParameter ("opc", OracleTypes
 						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("ido", Types.INTEGER));
 		SqlParameterSource in = new MapSqlParameterSource().addValue("ido", id);
@@ -64,7 +67,7 @@ public class OpcionDaoImp implements OpcionDao{
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("").withCatalogName("")
+				.withProcedureName("SP_READALL_OPCION").withCatalogName("PKG_CRUD_OPCION")
 				.declareParameters(new SqlOutParameter("opc", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}

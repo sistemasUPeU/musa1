@@ -11,4 +11,5 @@ public interface VinculacionRequisitoDao {
 	public int CrearRequisitoBus(VinculacionRequisito  e);
 	public int modificarVinculacionRequisito(VinculacionRequisito e);
 	public Map<String, Object> ListarVinculacionRequisito(int idv);
+	public int modificarVrequisitoBus(VinculacionRequisito e);
 }

@@ -33,12 +33,12 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 	@Override
 	public int update(Detalle_pedido detalle_pedido) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("cal pkg_crud_detalle_pedido.sp_modificar_detalle_pedido (?,?,?)", detalle_pedido.getId_detalle_pedido(), detalle_pedido.getId_pedido(), detalle_pedido.getId_producto());
+		return jdbcTemplate.update("call PKG_CRUD_PEDIDO.SP_MODIFICAR_PEDIDO (?,?,?)", detalle_pedido.getId_detalle_pedido(), detalle_pedido.getId_pedido(), detalle_pedido.getId_producto());
 	}
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("cal pkg_crud_detalle_pedido.sp_eliminar_detalle_pedido (?)", id);
+		return jdbcTemplate.update("call pkg_crud_pedido.sp_eliminar_pedido(?)", id);
 	}
 	@Override
 	public Map<String, Object> read(int id) {
@@ -53,11 +53,24 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_readall_detalle_pedido").withCatalogName("pkg_crud_detalle_pedido")
-				.declareParameters(new SqlOutParameter("deta_pedi", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_DETALLE_FECHA_PEDIDO").withCatalogName("PKG_DETALLE_PEDIDO")
+				.declareParameters(new SqlOutParameter("LIST_FECHA", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+	@Override
+	public Map<String, Object> read_detalle(int id) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_DETALLE_OJITO").withCatalogName("PKG_DETALLE_PEDIDO")
+				.declareParameters(new SqlOutParameter("LIST_DETALLE",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("IDP", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("IDP", id);
+		return simpleJdbcCall.execute(in);
+	}
 	
-	
+	@Override
+	public int updatestate(int id) {
+		System.out.println(id);
+		return jdbcTemplate.update("call PKG_DETALLE_PEDIDO.sp_actualizar_estado(?)", id);
+	}
 
 }

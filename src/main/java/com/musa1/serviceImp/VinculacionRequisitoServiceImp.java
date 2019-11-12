@@ -39,5 +39,9 @@ public class VinculacionRequisitoServiceImp implements VinculacionRequisitoServi
 	public int modificarVinculacionRequisito(VinculacionRequisito e) {
 		return vinculacionRequisitoDao.modificarVinculacionRequisito(e);
 	}
+	@Override
+	public int modificarVrequisitoBus(VinculacionRequisito e) {
+		return vinculacionRequisitoDao.modificarVrequisitoBus(e);
+	}
 
 }

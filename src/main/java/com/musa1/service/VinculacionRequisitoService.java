@@ -10,4 +10,5 @@ public interface VinculacionRequisitoService {
 	public int CrearRequisitoBus(VinculacionRequisito  e, int id_v);
 	public int modificarVinculacionRequisito(VinculacionRequisito e);
 	public Map<String, Object> ListarVinculacionRequisito(int idv);
+	public int modificarVrequisitoBus(VinculacionRequisito e);
 }

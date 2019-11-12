@@ -1,5 +1,6 @@
 package com.musa1.controller;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.musa1.entity.Usuario;
+import com.musa1.entity.UsuarioRol;
 import com.musa1.service.SeguridadService;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,8 +29,12 @@ public class SeguridadController {
 	public Map<String, Object> create(@RequestBody Usuario usuario) {
 		return seguridadService.createUser(usuario);
 	}
-	@GetMapping("/login")
-	public Usuario login(@PathVariable String user) {
-		return seguridadService.validateUser(user);
+	@PostMapping("/add/rol")
+	public int giveRol(@RequestBody UsuarioRol usuarioRol) {
+		return seguridadService.giveRol(usuarioRol);
+	}
+	@PostMapping("/validar")
+	public Map<String, Object> validar(@RequestBody Usuario usuario) {
+		return  seguridadService.validarUser(usuario.getNom_usuario(), usuario.getContrasena());
 	}
 }

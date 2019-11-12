@@ -44,7 +44,7 @@ public class SeguridadDaoImp implements SeguridadDao{
 	@Override
 	public int giveRol(UsuarioRol usuarioRol) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("CALL PKG_SEGURIDAD.SP_ADD_USUARIO_ROL(?,?,?)",usuarioRol.getId_usuario(),usuarioRol.getId_rol(),usuarioRol.getFecha_v());
+		return jdbcTemplate.update("CALL PKG_SEGURIDAD.SP_ADD_USUARIO_ROL(?,?)",usuarioRol.getId_usuario(),usuarioRol.getId_rol());
 	}
 
 	@Override

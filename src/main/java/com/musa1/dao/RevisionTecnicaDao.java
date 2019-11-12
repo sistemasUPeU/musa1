@@ -5,7 +5,6 @@ import java.util.Map;
 import com.musa1.entity.RevisionTecnica;
 
 
-
 public interface RevisionTecnicaDao {
 	public int create (RevisionTecnica revisiontecnica);
 	public int edit(RevisionTecnica revisiontecnica);

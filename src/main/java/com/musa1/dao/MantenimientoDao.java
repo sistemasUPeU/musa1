@@ -8,5 +8,6 @@ public interface MantenimientoDao {
 	public int delete(int id);
 	public Map<String, Object> read(int id);
 	public Map<String, Object> readAll();
+	public Map<String, Object> read_id_bus(String padron);
 		
 }

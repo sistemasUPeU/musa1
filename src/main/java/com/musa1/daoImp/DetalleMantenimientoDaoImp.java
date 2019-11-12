@@ -53,8 +53,26 @@ public class DetalleMantenimientoDaoImp implements DetalleMantenimientoDao {
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_DET_ACC_MANT").withCatalogName("PKG_CRUD_DETALLE_ACCION_MANT")
-				.declareParameters(new SqlOutParameter("(DETALLE_MANT", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_MANT_1").withCatalogName("PKG_CRUD_DETALLE_ACCION_MANT")
+				.declareParameters(new SqlOutParameter("(LISTA_MANTENIMIENTO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+	
+	
+	@Override
+	public Map<String, Object> read_detalle_ojito_mant(int id) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_DETALLE_OJITO_MANT").withCatalogName("PKG_CRUD_DETALLE_ACCION_MANT")
+				.declareParameters(new SqlOutParameter("LIST_ACCIONES_MANT", OracleTypes
+						.CURSOR, new ColumnMapRowMapper()), new SqlParameter("IDP", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("IDP", id);
+		return simpleJdbcCall.execute(in);
+	}
+	
+	@Override
+	public int update_accion(DetalleMantenimiento detallemantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_DETALLE_ACCION_MANT.SP_MODIFICAR_DETALLE_ACCION (?,?)",detallemantenimiento.getId_detalle_accion_mant(), detallemantenimiento.getRevision());	
 	}
 }

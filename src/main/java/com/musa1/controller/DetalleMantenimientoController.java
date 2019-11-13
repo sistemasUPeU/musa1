@@ -35,10 +35,11 @@ public class DetalleMantenimientoController {
 		return detallemantenimientoService.create(detallemantenimiento);
 	}
 	
+	
 	@PutMapping("/{id}")
-	public int update(@RequestBody DetalleMantenimiento detallemantenimiento, @PathVariable int id) {
+	public int update_accion(@RequestBody DetalleMantenimiento detallemantenimiento, @PathVariable int id) {
 		detallemantenimiento.setId_detalle_accion_mant(id);
-		return detallemantenimientoService.update(detallemantenimiento);
+		return detallemantenimientoService.update_accion(detallemantenimiento);
 	}
 	
 	

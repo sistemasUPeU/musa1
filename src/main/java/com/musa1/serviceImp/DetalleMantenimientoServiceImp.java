@@ -18,12 +18,7 @@ public class DetalleMantenimientoServiceImp implements DetalleMantenimientoServi
 		return detallemantenimientoDao.create(detallemantenimiento);
 	}
 
-	@Override
-	public int update(DetalleMantenimiento detallemantenimiento) {
-		// TODO Auto-generated method stub
-		return detallemantenimientoDao.update(detallemantenimiento);
-	}
-
+	
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
@@ -50,7 +45,14 @@ public class DetalleMantenimientoServiceImp implements DetalleMantenimientoServi
 	@Override
 	public int update_accion(DetalleMantenimiento detallemantenimiento) {
 		// TODO Auto-generated method stub
-		return detallemantenimientoDao.update(detallemantenimiento);
+		return detallemantenimientoDao.update_accion(detallemantenimiento);
 	}
+	
+	@Override
+	public Map<String, Object> read_detalle_mant(int id) {
+		// TODO Auto-generated method stub
+		return detallemantenimientoDao.read_detalle_mant(id);
+	}
+
 
 }

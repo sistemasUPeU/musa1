@@ -43,6 +43,10 @@ public class MantenimientoController {
 		mantenimiento.setId_mantenimiento(id);
 		return mantenimientoService.update(mantenimiento);
 	}
+	@PutMapping("/idman/{ide}")
+	public int update_estado(@PathVariable("ide") int ide) {
+		return mantenimientoService.update_estado(ide);
+	}	
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
 		return mantenimientoService.delete(id);

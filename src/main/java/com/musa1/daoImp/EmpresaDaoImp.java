@@ -27,13 +27,13 @@ public class EmpresaDaoImp implements EmpresaDao {
 	@Override
 	public int create(Empresa empresa) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_empresa.sp_insertar_empresa (?,?,?,?)",empresa.getRason_social(),empresa.getRuc(),empresa.getResponsable_social(),empresa.getId_ubigeo());
+		return jdbcTemplate.update("call pkg_crud_empresa.sp_insertar_empresa (?,?,?,?)",empresa.getRazon_social(),empresa.getRuc(),empresa.getResponsable_legal(),empresa.getId_ubigeo());
 	}
 
 	@Override
 	public int update(Empresa empresa) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_empresa.sp_modificar_empresa (?,?,?,?,?)",empresa.getId_empresa(),empresa.getRason_social(),empresa.getRuc(),empresa.getResponsable_social(),empresa.getId_ubigeo());
+		return jdbcTemplate.update("call pkg_crud_empresa.sp_modificar_empresa (?,?,?,?,?)",empresa.getId_empresa(),empresa.getRazon_social(),empresa.getRuc(),empresa.getResponsable_legal(),empresa.getId_ubigeo());
 	}
 
 	@Override

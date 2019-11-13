@@ -27,15 +27,15 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public int create(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_INSERTAR_REVISION_TECNICA(?,?,?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getUrl(),revisiontecnica.getObservacion(),revisiontecnica.getId_bus(),revisiontecnica.getNota());
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_INSERTAR_REVISION_TECNICA(?,?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getUrl(),revisiontecnica.getObservacion(),revisiontecnica.getId_bus());
 	}
 
 	@Override
 	public int edit(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_MODIFICAR_REVISION_TECNICA(?,?,?,?,?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),revisiontecnica.getNro_certificado(),
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_MODIFICAR_REVISION_TECNICA(?,?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),
 				revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getUrl(),
-				revisiontecnica.getObservacion(),revisiontecnica.getId_bus(),revisiontecnica.getId_persona(),revisiontecnica.getNota());
+				revisiontecnica.getObservacion(),revisiontecnica.getId_bus());
 	}
 	
 	@Override
@@ -60,6 +60,16 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_REVISION_TECNICA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
 				.declareParameters(new SqlOutParameter("REV", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public Map<String, Object> read_id_bus(String placa) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_FIND_BY_PLACA").withCatalogName("PKG_CRUD_REVISION_TECNICA")
+				.declareParameters(new SqlOutParameter("BUS_IDE", OracleTypes
+						.CURSOR,new ColumnMapRowMapper()),new SqlParameter("PLA_ID", Types.VARCHAR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("PLA_ID",placa);
+		return simpleJdbcCall.execute(in);
 	}
 
 }

@@ -67,4 +67,20 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("PADRON_ENVIADO", padron);
 		return simpleJdbcCall.execute(in);
 	}
+	
+	@Override
+	public Map<String, Object> searchPadron(String nombre) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withFunctionName("FN_SEARCH_PADRON")
+				.declareParameters(new SqlParameter("nombre", Types.VARCHAR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nombre", nombre);
+		return simpleJdbcCall.execute(in);
+	}
+	@Override
+	public int update_observacion(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
+	}
+	
 }

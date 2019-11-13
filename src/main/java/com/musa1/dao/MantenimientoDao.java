@@ -9,5 +9,6 @@ public interface MantenimientoDao {
 	public Map<String, Object> read(int id);
 	public Map<String, Object> readAll();
 	public Map<String, Object> read_id_bus(String padron);
-		
+	public Map<String , Object> searchPadron(String nombre);
+	public int update_observacion(Mantenimiento mantenimiento);
 }

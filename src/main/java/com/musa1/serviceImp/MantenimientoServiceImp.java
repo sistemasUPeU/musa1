@@ -67,5 +67,9 @@ public class MantenimientoServiceImp implements MantenimientoService{
 	public Map<String, Object> readAllVal2() {
 		// TODO Auto-generated method stub
 		return mantenimientoDao.readAllVal2();
+<<<<<<< HEAD
 	}
+=======
+		}
+>>>>>>> e794167c0e1b1c6d6f78ae37a3f9df4ddae2b474
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Accion;
 import com.musa1.service.AccionService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/accion")
 public class AccionController {

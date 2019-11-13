@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.TipoRequisito;
 import com.musa1.service.TipoRequisitoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/tipoRequisito")
 public class TipoRequisitoController {

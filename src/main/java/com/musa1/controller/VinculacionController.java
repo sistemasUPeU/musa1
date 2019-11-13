@@ -21,7 +21,7 @@ import com.musa1.service.VinculacionRequisitoService;
 import com.musa1.service.VinculacionService;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/vinculacion")
 @RestController
 public class VinculacionController {

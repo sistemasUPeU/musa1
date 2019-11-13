@@ -79,6 +79,14 @@ public class DetalleMantenimientoDaoImp implements DetalleMantenimientoDao {
 		return simpleJdbcCall.execute(in);
 	}
 	
+	@Override
+	public Map<String, Object> read() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_LISTA_MANTENIMIENTO").withCatalogName("PKG_CRUD_DETALLE_ACCION_MANT")
+				.declareParameters(new SqlOutParameter("(LISTA_MANTENIMIENTO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
+	}
+	
 }
 
 

@@ -29,12 +29,6 @@ public class DetalleMantenimientoDaoImp implements DetalleMantenimientoDao {
 	}
 	
 	@Override
-	public int update(DetalleMantenimiento detallemantenimiento) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_DETALLE_ACCION_MANT.SP_MODIFICAR_DET_ACC_MANT (?,?,?,?)",detallemantenimiento.getId_detalle_accion_mant(), detallemantenimiento.getRevision(), detallemantenimiento.getId_accion(), detallemantenimiento.getId_mantenimiento());
-	}
-	
-	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_DETALLE_ACCION_MANT.SP_ELIMINAR_DET_ACC_MANT(?)",id);

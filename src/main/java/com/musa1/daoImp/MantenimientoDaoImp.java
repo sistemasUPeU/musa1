@@ -57,11 +57,14 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 				.declareParameters(new SqlOutParameter("MANT", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+<<<<<<< HEAD
 	@Override
 	public int update_estado(int ide) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
 	}
+=======
+>>>>>>> dany2
 	public Map<String, Object> read_id_bus(String padron) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -81,11 +84,27 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("nombre", nombre);
 		return simpleJdbcCall.execute(in);
 	}
+	/*Para realizar la segunda validacion - readAllVal2*/
+	@Override
+	public Map<String, Object> readAllVal2() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READ_MANTENIMIENTOS2").withCatalogName("PKG_VALID_MANT")
+				.declareParameters(new SqlOutParameter("mant", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
+	}
 	@Override
 	public int update_observacion(Mantenimiento mantenimiento) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
 	}
+<<<<<<< HEAD
 	
+=======
+	@Override
+	public int update_estado(int ide) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
+	}
+>>>>>>> dany2
 }
 

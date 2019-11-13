@@ -18,6 +18,7 @@ import com.musa1.service.SeguridadService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/seguridad")
+
 public class SeguridadController {
 	@Autowired
 	private SeguridadService seguridadService;

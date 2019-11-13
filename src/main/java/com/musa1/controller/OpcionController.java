@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.musa1.entity.Rol;
-import com.musa1.service.RolService;
+import com.musa1.entity.Opcion;
+import com.musa1.service.OpcionService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/rol")
-public class RolController {
+@RequestMapping("/opcion")
+public class OpcionController {
 	@Autowired
-	private RolService rolService;
+	private OpcionService opcionService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
-		return rolService.readAll();
+		return opcionService.readAll();
 	}
 	@PostMapping("/add")
-	public int save(@RequestBody Rol rol) {
-		return rolService.create(rol);
+	public Map<String, Object> save(@RequestBody Opcion opcion) {
+		return opcionService.create(opcion);
 	}
 }

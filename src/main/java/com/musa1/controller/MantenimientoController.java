@@ -47,4 +47,14 @@ public class MantenimientoController {
 	public int delete(@PathVariable int id) {
 		return mantenimientoService.delete(id);
 	}
+	@GetMapping("/search/{nombre}")
+	public Map<String, Object> search(@PathVariable String nombre) {
+		return mantenimientoService.searchPadron(nombre);
+	}
+	
+	@PutMapping("/observacion/{id}")
+	public int update_observacion(@RequestBody Mantenimiento mantenimiento, @PathVariable int id) {
+		mantenimiento.setId_mantenimiento(id);
+		return mantenimientoService.update_observacion(mantenimiento);
+	}
 }

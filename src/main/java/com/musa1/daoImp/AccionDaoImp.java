@@ -27,13 +27,13 @@ public class AccionDaoImp implements AccionDao{
 	@Override
 	public int create(Accion accion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_accion.sp_insertar_accion (?,?,?)", accion.getNom_accion(),accion.getEstado(),accion.getId_tipo_accion());
+		return jdbcTemplate.update("call pkg_crud_accion.sp_insertar_accion (?,?)", accion.getNom_accion(),accion.getId_tipo_accion());
 	}
 
 	@Override
 	public int update(Accion accion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_accion.sp_modificar_accion (?,?,?,?)",accion.getA_id(),accion.getNom_accion(),accion.getEstado(),accion.getId_tipo_accion());
+		return jdbcTemplate.update("call pkg_crud_accion.sp_modificar_accion (?,?,?,?)",accion.getId_accion(),accion.getNom_accion(),accion.getEstado(),accion.getId_tipo_accion());
 	}
 
 	@Override

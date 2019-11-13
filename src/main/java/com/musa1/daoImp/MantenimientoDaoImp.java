@@ -57,4 +57,10 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 				.declareParameters(new SqlOutParameter("MANT", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+	@Override
+	public int update_estado(int ide) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
+	}
 }
+

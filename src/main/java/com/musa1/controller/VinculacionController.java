@@ -34,14 +34,14 @@ public class VinculacionController {
 	
 	@GetMapping("/")
 	public int jorge() {
-		return 1;
+		return 1;	
 	}
 
 	@GetMapping("/conductor")
 	public Map<String, Object> getVinculacionConductor() {
 		return vinculacionService.readVinculacionConductor();
 	}
-	@PostMapping("/addvc")
+	@PostMapping("/addvc")	
 	public int createVinculacionConductor(@RequestBody Vinculacion vinculacion) {
 		int idv = (int)vinculacionService.createVinculacionConductor(vinculacion).get("idv");
 		return idv;

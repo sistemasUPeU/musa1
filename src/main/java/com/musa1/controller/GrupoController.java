@@ -3,6 +3,7 @@ package com.musa1.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.musa1.entity.Grupo;
 import com.musa1.service.GrupoService;
 import com.musa1.service.MesService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/grupo")
 public class GrupoController {
@@ -36,6 +38,7 @@ public class GrupoController {
 		return grupoService.readAll(tipoconsulta);
 	}
 	
+	
 	@PostMapping("/add")
 	public int create ( @RequestBody Grupo g) {
 		System.out.println("grupo" + g);
@@ -44,6 +47,8 @@ public class GrupoController {
 	
 	@PutMapping("/{estado}")
 	public int update( @RequestBody int g, @PathVariable int estado) {
+		System.out.println("estado" + estado);
+		System.out.println("body "+ g);
 		return grupoService.update(estado);
 	}
 	

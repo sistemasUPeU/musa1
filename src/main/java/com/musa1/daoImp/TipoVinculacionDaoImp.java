@@ -56,8 +56,9 @@ public class TipoVinculacionDaoImp implements TipoVinculacionDao{
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READALL_TIPO_VINCULACION").withCatalogName("pkg_crud_tipo_vinculacion")
-				.declareParameters(new SqlOutParameter("tipo_vinc", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName
+		("SP_READALL_TIPO_VINCULACION").withCatalogName("pkg_crud_tipo_vinculacion")
+		.declareParameters(new SqlOutParameter("tipo_vinc", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 

@@ -1,8 +1,9 @@
-package com.musa1.controller;
+ package com.musa1.controller;
 
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.Detalle_pedido;
+import com.musa1.entity.Pedido;
 import com.musa1.service.Detalle_pedidoService;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/detalle_pedido")
 public class Detalle_pedidoController {
@@ -28,12 +30,19 @@ public class Detalle_pedidoController {
 	}
 	@GetMapping("/{id}")
 	public Map<String, Object> getread(@PathVariable int id){
-		return detalle_pedidoService.read(id);
+		return detalle_pedidoService.read_detalle(id);
 	}
 	@PostMapping("/add")
 	public int save(@RequestBody Detalle_pedido detalle_pedido) {
 		return detalle_pedidoService.create(detalle_pedido);
 	}
+	
+	@PutMapping("/status/{id}") 
+	public int updatestatus( @RequestBody Pedido pedido ,@PathVariable int id) {
+		return detalle_pedidoService.updatestatus(id);
+	}
+	
+	
 	@PutMapping("/{id}")
 	public int update(@RequestBody Detalle_pedido detalle_pedido, @PathVariable int id) {
 		detalle_pedido.setId_detalle_pedido(id);

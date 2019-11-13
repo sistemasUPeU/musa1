@@ -41,5 +41,16 @@ public class DetalleMantenimientoServiceImp implements DetalleMantenimientoServi
 		// TODO Auto-generated method stub
 		return detallemantenimientoDao.readAll();
 	}
+	@Override
+	public Map<String, Object> read_detalle_ojito_mant(int id) {
+		// TODO Auto-generated method stub
+		return detallemantenimientoDao.read_detalle_ojito_mant(id);
+	}
+
+	@Override
+	public int update_accion(DetalleMantenimiento detallemantenimiento) {
+		// TODO Auto-generated method stub
+		return detallemantenimientoDao.update(detallemantenimiento);
+	}
 
 }

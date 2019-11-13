@@ -2,6 +2,7 @@ package com.musa1.controller;
 
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Mantenimiento;
 import com.musa1.service.MantenimientoService;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/mantenimiento")
 public class MantenimientoController {
@@ -23,6 +24,12 @@ public class MantenimientoController {
 	public Map<String, Object> getall(){
 		return mantenimientoService.readAll();
 	}
+	
+	@GetMapping("/bus/{padron}")
+	public Map<String, Object> get_bus(@PathVariable String padron){
+		return mantenimientoService.read_id_bus(padron);
+	}
+	
 	@GetMapping("/{id}")
 	public Map<String, Object> getread(@PathVariable int id){
 		return mantenimientoService.read(id);
@@ -43,5 +50,15 @@ public class MantenimientoController {
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
 		return mantenimientoService.delete(id);
+	}
+	@GetMapping("/search/{nombre}")
+	public Map<String, Object> search(@PathVariable String nombre) {
+		return mantenimientoService.searchPadron(nombre);
+	}
+	
+	@PutMapping("/observacion/{id}")
+	public int update_observacion(@RequestBody Mantenimiento mantenimiento, @PathVariable int id) {
+		mantenimiento.setId_mantenimiento(id);
+		return mantenimientoService.update_observacion(mantenimiento);
 	}
 }

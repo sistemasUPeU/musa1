@@ -3,6 +3,7 @@ package com.musa1.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,16 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.RevisionTecnica;
 import com.musa1.service.RevisionTecnicaService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/revisiontecnica")
 public class RevisionTecnicaController {
 	@Autowired
-	
 	private RevisionTecnicaService revisionTecnicaService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
 		return revisionTecnicaService.readAll();
+	}
+	@GetMapping("/bus/{placa}")
+	public Map<String, Object> get_bus(@PathVariable String placa){
+		return revisionTecnicaService.read_id_bus(placa);
 	}
 	@PostMapping("/add")
 	public int save(@RequestBody RevisionTecnica revisiontecnica) {

@@ -37,7 +37,7 @@ public class AccionController {
 	}
 	@PutMapping("/{id}")
 	public int update(@RequestBody Accion accion, @PathVariable int id) {
-		accion.setA_id(id);
+		accion.setId_accion(id);
 		return accionService.update(accion);
 	}
 	@DeleteMapping("/{id}")

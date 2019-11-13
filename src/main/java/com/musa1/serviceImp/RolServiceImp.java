@@ -5,48 +5,49 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.musa1.dao.PedidoDao;
-import com.musa1.entity.Pedido;
-import com.musa1.service.PedidoService;
+import com.musa1.dao.RolDao;
+import com.musa1.entity.OpcionRol;
+import com.musa1.entity.Rol;
+import com.musa1.service.RolService;
 
 @Service
-public class PedidoServicelmp implements PedidoService{
+public class RolServiceImp implements RolService {
 	@Autowired
-	private PedidoDao pedidoDao;
-
+	private RolDao rolDao;
 	@Override
-	public int create(Pedido pedido) {
+	public int create(Rol rol) {
 		// TODO Auto-generated method stub
-		return pedidoDao.create(pedido);
+		return rolDao.create(rol);
 	}
 
 	@Override
-	public int edit(Pedido pedido) {
+	public int addOpcionRol(OpcionRol opcionRol) {
 		// TODO Auto-generated method stub
-		return pedidoDao.edit(pedido);
+		return rolDao.addOpcionRol(opcionRol);
+	}
+
+	@Override
+	public int edit(Rol rol) {
+		// TODO Auto-generated method stub
+		return rolDao.edit(rol);
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return pedidoDao.delete(id);
+		return rolDao.delete(id);
 	}
 
 	@Override
 	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		return pedidoDao.read(id);
+		return rolDao.read(id);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		return pedidoDao.readAll();
+		return rolDao.readAll();
 	}
-	@Override
-	public int update_pedido(Pedido pedido) {
-		// TODO Auto-generated method stub
-		return pedidoDao.update_pedido(pedido);
-	}
-	
+
 }

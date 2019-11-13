@@ -41,4 +41,25 @@ public class MantenimientoServiceImp implements MantenimientoService{
 		// TODO Auto-generated method stub
 		return mantenimientoDao.readAll();
 	}
+
+	@Override
+	public int update_estado(int ide) {
+		// TODO Auto-generated method stub
+		return mantenimientoDao.update_estado(ide);
+	}
+	@Override
+	public Map<String, Object> read_id_bus(String padron) {
+		// TODO Auto-generated method stub
+		return mantenimientoDao.read_id_bus(padron);
+	}
+	@Override
+	public Map<String, Object> searchPadron(String nombre) {
+		// TODO Auto-generated method stub
+		return mantenimientoDao.searchPadron(nombre);
+	}
+	@Override
+	public int update_observacion(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return mantenimientoDao.update_observacion(mantenimiento);
+	}
 }

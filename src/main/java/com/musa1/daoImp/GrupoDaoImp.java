@@ -32,7 +32,7 @@ public class GrupoDaoImp implements GrupoDao {
 		System.out.println("mes:" + g.getId_mes());
 		return jdbcTemplate.update("call pkg_crud_grupo.sp_insertgrupo(?,?,?,?,?)", g.getNumero(), g.getCantidad_buses(), g.getHora_inicio(), g.getIntervalo(), g.getId_mes());
 	}
-
+	
 	@Override
 	public int update(int estado) {
 		// TODO Auto-generated method stub

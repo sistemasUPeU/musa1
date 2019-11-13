@@ -3,6 +3,7 @@ package com.musa1.dao;
 import java.util.Map;
 
 import com.musa1.entity.Detalle_pedido;
+import com.musa1.entity.Mantenimiento;
 
 public interface Detalle_pedidoDao {
 	public int create (Detalle_pedido detalle_pedido);

@@ -10,5 +10,6 @@ public interface PedidoService {
 	public int delete(int id);
 	public Map<String , Object> read(int id);
 	public Map<String , Object> readAll();
+	public int update_pedido(Pedido pedido);
 	
 }

@@ -43,6 +43,10 @@ public class PedidoServicelmp implements PedidoService{
 		// TODO Auto-generated method stub
 		return pedidoDao.readAll();
 	}
-	
+	@Override
+	public int update_pedido(Pedido pedido) {
+		// TODO Auto-generated method stub
+		return pedidoDao.update_pedido(pedido);
+	}
 	
 }

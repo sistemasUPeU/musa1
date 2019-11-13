@@ -1,3 +1,4 @@
+
 package com.musa1.controller;
 
 import java.util.Map;
@@ -24,7 +25,10 @@ public class MantenimientoController {
 	public Map<String, Object> getall(){
 		return mantenimientoService.readAll();
 	}
-	
+	@GetMapping("/hola/bb")
+	public Map<String,Object> getval2(){
+		return mantenimientoService.readAllVal2();
+	}
 	@GetMapping("/bus/{padron}")
 	public Map<String, Object> get_bus(@PathVariable String padron){
 		return mantenimientoService.read_id_bus(padron);
@@ -33,6 +37,10 @@ public class MantenimientoController {
 	@GetMapping("/{id}")
 	public Map<String, Object> getread(@PathVariable int id){
 		return mantenimientoService.read(id);
+	}
+	@GetMapping("/search/{nombre}")
+	public Map<String, Object> search(@PathVariable String nombre) {
+		return mantenimientoService.searchPadron(nombre);
 	}
 	@PostMapping("/add")
 	public int save(@RequestBody Mantenimiento mantenimiento) {
@@ -50,10 +58,6 @@ public class MantenimientoController {
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
 		return mantenimientoService.delete(id);
-	}
-	@GetMapping("/search/{nombre}")
-	public Map<String, Object> search(@PathVariable String nombre) {
-		return mantenimientoService.searchPadron(nombre);
 	}
 	
 	@PutMapping("/observacion/{id}")

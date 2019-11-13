@@ -21,12 +21,15 @@ import com.musa1.service.RevisionTecnicaService;
 @RequestMapping("/revisiontecnica")
 public class RevisionTecnicaController {
 	@Autowired
-	
 	private RevisionTecnicaService revisionTecnicaService;
 	
 	@GetMapping("/")
 	public Map<String, Object> get() {
 		return revisionTecnicaService.readAll();
+	}
+	@GetMapping("/bus/{placa}")
+	public Map<String, Object> get_bus(@PathVariable String placa){
+		return revisionTecnicaService.read_id_bus(placa);
 	}
 	@PostMapping("/add")
 	public int save(@RequestBody RevisionTecnica revisiontecnica) {

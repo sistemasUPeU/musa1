@@ -58,6 +58,10 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		return simpleJdbcCall.execute();
 	}
 	@Override
+	public int update_estado(int ide) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
+	}
 	public Map<String, Object> read_id_bus(String padron) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -84,3 +88,4 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 	}
 	
 }
+

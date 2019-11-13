@@ -44,4 +44,10 @@ public class RevisionTecnicaServiceImp implements RevisionTecnicaService {
 		return revisionTecnicaDao.readAll();
 	}
 
+	@Override
+	public Map<String, Object> read_id_bus(String placa) {
+		// TODO Auto-generated method stub
+		return revisionTecnicaDao.read_id_bus(placa);
+	}
+
 }

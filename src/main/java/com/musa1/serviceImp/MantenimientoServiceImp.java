@@ -41,13 +41,12 @@ public class MantenimientoServiceImp implements MantenimientoService{
 		// TODO Auto-generated method stub
 		return mantenimientoDao.readAll();
 	}
-<<<<<<< HEAD
 
 	@Override
 	public int update_estado(int ide) {
 		// TODO Auto-generated method stub
 		return mantenimientoDao.update_estado(ide);
-=======
+	}
 	@Override
 	public Map<String, Object> read_id_bus(String padron) {
 		// TODO Auto-generated method stub
@@ -62,6 +61,5 @@ public class MantenimientoServiceImp implements MantenimientoService{
 	public int update_observacion(Mantenimiento mantenimiento) {
 		// TODO Auto-generated method stub
 		return mantenimientoDao.update_observacion(mantenimiento);
->>>>>>> eb241103a5241384a07299508c6a345346885642
 	}
 }

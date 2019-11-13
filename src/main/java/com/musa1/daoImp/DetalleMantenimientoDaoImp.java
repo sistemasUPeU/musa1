@@ -75,4 +75,29 @@ public class DetalleMantenimientoDaoImp implements DetalleMantenimientoDao {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_DETALLE_ACCION_MANT.SP_MODIFICAR_DETALLE_ACCION (?,?)",detallemantenimiento.getId_detalle_accion_mant(), detallemantenimiento.getRevision());	
 	}
+	@Override
+	public Map<String, Object> read_detalle_mant(int id) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_DETALLE_OJITO_MANT").withCatalogName("PKG_CRUD_DETALLE_ACCION_MANT")
+				.declareParameters(new SqlOutParameter("LIST_ACCIONES_MANT",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("IDP", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("IDP", id);
+		return simpleJdbcCall.execute(in);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

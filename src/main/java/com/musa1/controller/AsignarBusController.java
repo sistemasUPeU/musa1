@@ -36,26 +36,13 @@ public class AsignarBusController {
 	public Map<String, Object> getParadero() {
 	    return service.readParadero();
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> d122dd4daeb3a49fdd49fc7df63befa61bab6044
 	@PutMapping("/{id}")
 	public int update(@RequestBody AsignarBus ab, @PathVariable int id) {
 		ab.setId_detalle_bus_grupo(id);
 		return service.edit(ab);
-<<<<<<< HEAD
-=======
-
->>>>>>> d122dd4daeb3a49fdd49fc7df63befa61bab6044
 	}
 	@GetMapping("/fil/{nume}")
 	public Map<String, Object> getfil( @PathVariable int nume){
 		return service.readfil(nume);
-<<<<<<< HEAD
-=======
-
->>>>>>> d122dd4daeb3a49fdd49fc7df63befa61bab6044
 	}
 }

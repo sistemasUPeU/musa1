@@ -31,6 +31,7 @@ public class RevisionTecnicaController {
 	public Map<String, Object> get_bus(@PathVariable String placa){
 		return revisionTecnicaService.read_id_bus(placa);
 	}
+
 	@PostMapping("/add")
 	public int save(@RequestBody RevisionTecnica revisiontecnica) {
 		return revisionTecnicaService.create(revisiontecnica);

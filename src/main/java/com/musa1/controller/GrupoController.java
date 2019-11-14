@@ -17,7 +17,7 @@ import com.musa1.entity.Grupo;
 import com.musa1.service.GrupoService;
 import com.musa1.service.MesService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/grupo")
 public class GrupoController {

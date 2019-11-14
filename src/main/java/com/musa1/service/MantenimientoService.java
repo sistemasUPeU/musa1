@@ -14,4 +14,6 @@ public interface MantenimientoService {
 	public Map<String, Object> read_id_bus(String padron);
 	public Map<String , Object> searchPadron(String nombre);
 	public int update_observacion(Mantenimiento mantenimiento);
+	public int update_validar_1(Mantenimiento mantenimiento);
+
 }

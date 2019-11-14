@@ -67,5 +67,11 @@ public class MantenimientoServiceImp implements MantenimientoService{
 		// TODO Auto-generated method stub
 		return mantenimientoDao.readAllVal2();
 	}
+	
+	@Override
+	public int update_validar_1(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return mantenimientoDao.update_validar_1(mantenimiento);
+	}
 		
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.musa1.entity.DetalleMantenimiento;
 import com.musa1.entity.Mantenimiento;
 import com.musa1.service.MantenimientoService;
 @CrossOrigin(origins = "*")
@@ -64,5 +66,10 @@ public class MantenimientoController {
 	public int update_observacion(@RequestBody Mantenimiento mantenimiento, @PathVariable int id) {
 		mantenimiento.setId_mantenimiento(id);
 		return mantenimientoService.update_observacion(mantenimiento);
+	}
+	
+	@PutMapping("/estado_1/")
+	public int update_validar_1(@RequestBody Mantenimiento mantenimiento) {
+		return mantenimientoService.update_validar_1(mantenimiento);
 	}
 }

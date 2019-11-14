@@ -94,5 +94,11 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
 	}
+	
+	@Override
+	public int update_validar_1(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_UPDATE_VALIDAR_1 (?,?)",mantenimiento.getId_mantenimiento(),mantenimiento.getEstado());	
+	}
 }
 

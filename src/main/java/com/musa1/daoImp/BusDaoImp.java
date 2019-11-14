@@ -28,7 +28,7 @@ public class BusDaoImp implements BusDao{
 	
 	@Override
 	public int create(Bus b) {
-		return jdbcTemplate.update("call pkg_crud_bus.sp_insert_bus(?,?,?,?,?,?,?,?,?,?,?)",b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getPadron(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos(),b.getId_persona_propietario());
+		return jdbcTemplate.update("call pkg_crud_bus.sp_insert_bus(?,?,?,?,?,?,?,?,?,?)",b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos(),b.getId_persona_propietario());
 	}
 
 	@Override

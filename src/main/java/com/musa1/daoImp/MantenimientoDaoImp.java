@@ -58,6 +58,10 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		return simpleJdbcCall.execute();
 	}
 	@Override
+	public int update_estado(int ide) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
+	}
 	public Map<String, Object> read_id_bus(String padron) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -67,4 +71,34 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		SqlParameterSource in = new MapSqlParameterSource().addValue("PADRON_ENVIADO", padron);
 		return simpleJdbcCall.execute(in);
 	}
+	
+	@Override
+	public Map<String, Object> searchPadron(String nombre) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
+				.withFunctionName("FN_SEARCH_PADRON")
+				.declareParameters(new SqlParameter("nombre", Types.VARCHAR));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nombre", nombre);
+		return simpleJdbcCall.execute(in);
+	}
+	/*Para realizar la segunda validacion - readAllVal2*/
+	@Override
+	public Map<String, Object> readAllVal2() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_LISTA_MANTENIMIENTO2").withCatalogName("PKG_VALID_MANT")
+				.declareParameters(new SqlOutParameter("LISTA_MANTENIMIENTO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
+	}
+	@Override
+	public int update_observacion(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
+	}
+	
+	@Override
+	public int update_validar_1(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_UPDATE_VALIDAR_1 (?,?)",mantenimiento.getId_mantenimiento(),mantenimiento.getEstado());	
+	}
 }
+

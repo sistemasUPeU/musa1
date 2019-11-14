@@ -33,7 +33,7 @@ public class TipoAccionDaoImp implements TipoAccionDao {
 	@Override
 	public int update(TipoAccion tipo_accion) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_modificar_tipo_accion(?,?,?)", tipo_accion.getId_tipo_accion(),tipo_accion.getNom_tipo_accion(),tipo_accion.getEstado());
+		return jdbcTemplate.update("call pkg_crud_tipo_accion.sp_modificar_tipo_accion(?,?)", tipo_accion.getId_tipo_accion(),tipo_accion.getNom_tipo_accion());
 	}
 	@Override
 	public int delete(int id) {

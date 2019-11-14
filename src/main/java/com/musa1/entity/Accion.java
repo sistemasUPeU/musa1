@@ -1,26 +1,26 @@
 package com.musa1.entity;
 
 public class Accion {
-	private int a_id;
+	private int id_accion;
 	private String nom_accion;
 	private String estado;
 	private int id_tipo_accion;
-	
 	public Accion() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Accion(int a_id, String nom_accion, String estado, int id_tipo_accion) {
+	public Accion(int id_accion, String nom_accion, String estado, int id_tipo_accion) {
 		super();
-		this.a_id = a_id;
+		this.id_accion = id_accion;
 		this.nom_accion = nom_accion;
 		this.estado = estado;
 		this.id_tipo_accion = id_tipo_accion;
 	}
-	public int getA_id() {
-		return a_id;
+	public int getId_accion() {
+		return id_accion;
 	}
-	public void setA_id(int a_id) {
-		this.a_id = a_id;
+	public void setId_accion(int id_accion) {
+		this.id_accion = id_accion;
 	}
 	public String getNom_accion() {
 		return nom_accion;
@@ -40,6 +40,7 @@ public class Accion {
 	public void setId_tipo_accion(int id_tipo_accion) {
 		this.id_tipo_accion = id_tipo_accion;
 	}
+	
 	
 
 }

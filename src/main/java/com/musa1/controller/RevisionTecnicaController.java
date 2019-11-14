@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.RevisionTecnica;
 import com.musa1.service.RevisionTecnicaService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/revisiontecnica")
 public class RevisionTecnicaController {

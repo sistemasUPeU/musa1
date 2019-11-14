@@ -42,5 +42,11 @@ public class PedidoController {
 	@DeleteMapping("/{id}")
 	public int delete(@PathVariable int id) {
 		return pedidoService.delete(id);
-		}
+	}
+
+	@PutMapping("/status/{id}")
+	public int update_pedido(@RequestBody Pedido pedido, @PathVariable int id) {
+		pedido.setId_pedido(id);
+		return pedidoService.update_pedido(pedido);
+	}
 }

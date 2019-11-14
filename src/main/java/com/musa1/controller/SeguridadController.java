@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +38,10 @@ public class SeguridadController {
 	@PostMapping("/validar")
 	public Map<String, Object> validar(@RequestBody Usuario usuario) {
 		return  seguridadService.validarUser(usuario.getNom_usuario(), usuario.getContrasena());
+	}
+	@PutMapping("/updatePass")
+	public int update(@RequestBody Usuario usuario) {
+		return seguridadService.updatePassword(usuario);
+		
 	}
 }

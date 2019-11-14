@@ -38,7 +38,7 @@ public class SeguridadDaoImp implements SeguridadDao{
 	@Override
 	public int updatePassword(Usuario usuario) {
 		// TODO Auto-generated method stub
-		return 0;
+		return jdbcTemplate.update("CALL PKG_SEGURIDAD.SP_UPDATE_PASS(?,?)",usuario.getId_usuario(),usuario.getContrasena());
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package com.musa1.daoImp;
 
 import java.sql.Types;
-
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,59 +13,52 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import com.musa1.dao.BusDao;
-import com.musa1.entity.Bus;
-import com.musa1.entity.VinculacionRequisito;
+import com.musa1.dao.ProductoDao;
+import com.musa1.entity.Producto;
 
-import oracle.jdbc.OracleTypes;
-
+import oracle.jdbc.internal.OracleTypes;
 @Repository
-public class BusDaoImp implements BusDao{
+public class ProductoDaoImp implements ProductoDao{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	private SimpleJdbcCall simpleJdbcCall;
-	
+
 	@Override
-	public int create(Bus b) {
-		return jdbcTemplate.update("call pkg_crud_bus.sp_insert_bus(?,?,?,?,?,?,?,?,?,?,?)",b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getPadron(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos(),b.getId_persona_propietario());
+	public int create(Producto producto) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_PRODUCTO.SP_INSERTAR_PRODUCTO(?,?,?,?,?)",producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getId_marca());
 	}
 
 	@Override
-	public int update(Bus b) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_update_bus(?,?,?,?,?,?,?,?,?,?)",b.getId_bus(),b.getMarca(),b.getPlaca(),b.getDescripcion(),b.getEstado(),b.getModelo(),b.getNro_motor(),b.getAnio_fabricacion(),b.getNro_serie(),b.getNro_asientos());
-		
+	public int edit(Producto producto) {
+		// TODO Auto-generated method stub	
+		return jdbcTemplate.update("call PKG_CRUD_PRODUCTO.SP_ACTUALIZAR_PRODUCTO(?,?,?,?,?,?)",producto.getId_producto(),producto.getNombre_producto(),producto.getDescripcion(),producto.getId_categoria(),producto.getId_unidad_medida(),producto.getId_marca());
 	}
 
 	@Override
 	public int delete(int id) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.sp_delete_bus(?)",id);
+		return jdbcTemplate.update("call PKG_CRUD_PRODUCTO.SP_ELIMINAR_PRODUCTO(?)",id);
 	}
 
 	@Override
-	public Map<String, Object> read(String placa) {
+	public Map<String, Object> read(int id) {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName("SP_READ_BUS").withCatalogName("pkg_crud_bus")
-				.declareParameters(new SqlOutParameter("bus",OracleTypes
-						.CURSOR,new ColumnMapRowMapper()), new SqlParameter("plac",Types.VARCHAR));
-				SqlParameterSource in = new MapSqlParameterSource().addValue("plac", placa);
+		simpleJdbcCall =new SimpleJdbcCall(jdbcTemplate)
+				.withProcedureName("SP_READ_PRODUCTO").withCatalogName("PKG_CRUD_PRODUCTO")
+				.declareParameters(new SqlOutParameter("LIS_PROD",OracleTypes.CURSOR,new ColumnMapRowMapper()),new SqlParameter("PROD_ID", Types.INTEGER));
+				SqlParameterSource in =new MapSqlParameterSource().addValue("PROD_ID", id);
 		return simpleJdbcCall.execute(in);
 	}
 
 	@Override
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READADLL_BUS").withCatalogName("pkg_crud_bus")
-				.declareParameters(new SqlOutParameter("b", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_CONSULTA_PRODUCTO").withCatalogName("PKG_CRUD_PRODUCTO")
+				.declareParameters(new SqlOutParameter("LIS_PROD", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 
-	@Override
-	public int createVin(VinculacionRequisito vr) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.SP_INSERT_VINCUREQUE(?,?,?,?)",vr.getUrl(),vr.getEstado(),vr.getId_vinculacion(),vr.getId_requisito(),vr.getFecha_vencimiento_doc());
-	}
+
 	
 }

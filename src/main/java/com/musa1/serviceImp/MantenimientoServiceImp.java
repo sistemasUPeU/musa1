@@ -61,14 +61,11 @@ public class MantenimientoServiceImp implements MantenimientoService{
 	public int update_observacion(Mantenimiento mantenimiento) {
 		// TODO Auto-generated method stub
 		return mantenimientoDao.update_observacion(mantenimiento);
-<<<<<<< HEAD
-=======
 	}
 
 	@Override
 	public Map<String, Object> readAllVal2() {
 		// TODO Auto-generated method stub
 		return mantenimientoDao.readAllVal2();
->>>>>>> dany2
-	}
+		}
 }

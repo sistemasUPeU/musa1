@@ -77,11 +77,6 @@
 	        <artifactId>guava</artifactId>
 	        <version>27.1-jre</version>
 	    </dependency>
-	   	<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>19.3</version>
-		</dependency>
 	</dependencies>
 
 	<build>

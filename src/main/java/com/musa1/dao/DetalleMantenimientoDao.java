@@ -10,5 +10,6 @@ public interface DetalleMantenimientoDao {
 	public int update_accion(DetalleMantenimiento detallemantenimiento);
 	public Map<String, Object> read_detalle_mant(int id);
 	
+	public Map<String, Object> read();
 }
 	

@@ -55,4 +55,11 @@ public class DetalleMantenimientoServiceImp implements DetalleMantenimientoServi
 	}
 
 
+	@Override
+	public Map<String, Object> read() {
+		// TODO Auto-generated method stub
+		return detallemantenimientoDao.read();
+	}
+
+
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,10 @@ public class AsignarBusController {
 	@GetMapping("/paradero")
 	public Map<String, Object> getParadero() {
 	    return service.readParadero();
+	}
+	
+	@GetMapping("/fil/{nume}")
+	public Map<String, Object> getfil( @PathVariable int nume){
+		return service.readfil(nume);
 	}
 }

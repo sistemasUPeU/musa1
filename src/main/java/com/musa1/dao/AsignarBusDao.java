@@ -7,6 +7,6 @@ public interface AsignarBusDao {
 	public Map<String, Object> readAsignarBus();
 	
 	public Map<String, Object> readParadero();
-	
+	Map<String , Object> readfil(int nume);
 
 }

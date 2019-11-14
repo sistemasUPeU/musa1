@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.Unidad_medida;
 import com.musa1.service.Unidad_medidaService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 
 @RestController
 @RequestMapping("/unidad_medida")

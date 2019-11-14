@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Opcion;
 import com.musa1.service.OpcionService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/opcion")
 public class OpcionController {

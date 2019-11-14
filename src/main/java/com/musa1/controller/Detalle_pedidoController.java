@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Detalle_pedido;
 import com.musa1.entity.Pedido;
 import com.musa1.service.Detalle_pedidoService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/detalle_pedido")
 public class Detalle_pedidoController {

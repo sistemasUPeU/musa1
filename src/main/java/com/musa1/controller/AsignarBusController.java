@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+=======
+>>>>>>> 8e4bde699792411f5584f18413d7700a2d07d429
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,9 +38,15 @@ public class AsignarBusController {
 	    return service.readParadero();
 	}
 	
+<<<<<<< HEAD
 	@PutMapping("/{id}")
 	public int update(@RequestBody AsignarBus ab, @PathVariable int id) {
 		ab.setId_detalle_bus_grupo(id);
 		return service.edit(ab);
+=======
+	@GetMapping("/fil/{nume}")
+	public Map<String, Object> getfil( @PathVariable int nume){
+		return service.readfil(nume);
+>>>>>>> 8e4bde699792411f5584f18413d7700a2d07d429
 	}
 }

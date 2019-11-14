@@ -33,4 +33,10 @@ public class AsignarBusServiceImp implements AsignarBusService {
 		// TODO Auto-generated method stub
 		return dao.edit(ab);
 	}
+
+	@Override
+	public Map<String, Object> readfil(int nume) {
+		// TODO Auto-generated method stub
+		return dao.readfil(nume);
+	}
 }

@@ -2,13 +2,16 @@ package com.musa1.daoImp;
 
 
 
+import java.sql.Types;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.ColumnMapRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;
-
+import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
@@ -52,6 +55,16 @@ public class AsignarBusDaoImp implements AsignarBusDao{
 				.withProcedureName("LIST_PARADERO").withCatalogName("pkg_asignar_bus")
 				.declareParameters(new SqlOutParameter("LS", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return call.execute();
+	}
+
+	@Override
+	public Map<String, Object> readfil(int nume) {
+		// TODO Auto-generated method stub
+		call = new SimpleJdbcCall(jdbc).withProcedureName("FILGRUPO").withCatalogName("pkg_asignar_bus")
+				.declareParameters(new SqlOutParameter("Fil" , OracleTypes.CURSOR, new ColumnMapRowMapper()), new SqlParameter("nume", Types.INTEGER));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("nume", nume);
+		
+		return call.execute(in);
 	}
 
 	

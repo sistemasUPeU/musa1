@@ -25,7 +25,7 @@ public class MantenimientoController {
 	public Map<String, Object> getall(){
 		return mantenimientoService.readAll();
 	}
-	@GetMapping("/hola/bb")
+	@GetMapping("/val2/3/")
 	public Map<String,Object> getval2(){
 		return mantenimientoService.readAllVal2();
 	}

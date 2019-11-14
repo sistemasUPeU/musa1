@@ -3,6 +3,7 @@ package com.musa1.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.CronogramaBus;
 import com.musa1.entity.Periodo;
 import com.musa1.service.CronogramaService;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/crono")
 public class CronogramaController {
@@ -36,6 +37,7 @@ public class CronogramaController {
 	
 	@PostMapping("/add")
 	public int createcro( @RequestBody CronogramaBus cb) {
+		System.out.println("estara llegando"+cb.getId_mes());
 		return cronogramaService.create(cb);
 	}
 	
@@ -46,7 +48,7 @@ public class CronogramaController {
 	}
 	
 	@PostMapping("/crono")
-	public int create() {
+	public int create(@RequestBody int a) {
 		return cronogramaService.createcrono();
 	}
 	

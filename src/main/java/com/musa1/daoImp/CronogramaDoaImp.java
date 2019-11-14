@@ -35,13 +35,14 @@ public class CronogramaDoaImp implements CronogramaDao {
 	@Override
 	public int update(Periodo p) {
 		// TODO Auto-generated method stub
+		System.out.println("se va a editar " + p.getNombre_periodo());
 		return jdbcTemplate.update("call pkg_cronograma_bus.sp_update_periodo(?,?)", p.getId_periodo(), p.getNombre_periodo());
 	}
 
 	@Override
 	public int create(CronogramaBus cb) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_cronograma_bus.sp_insert_crono()?", cb.getId_mes());
+		return jdbcTemplate.update("call pkg_cronograma_bus.sp_insert_crono(?)", cb.getId_mes());
 	}
 	
 	

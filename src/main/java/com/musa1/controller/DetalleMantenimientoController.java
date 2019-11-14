@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.DetalleMantenimiento;
 import com.musa1.service.DetalleMantenimientoService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/detalle_mantenimiento")
 public class DetalleMantenimientoController {
@@ -34,11 +34,10 @@ public class DetalleMantenimientoController {
 	public int save(@RequestBody DetalleMantenimiento detallemantenimiento) {
 		return detallemantenimientoService.create(detallemantenimiento);
 	}
+		
 	
-	
-	@PutMapping("/{id}")
-	public int update_accion(@RequestBody DetalleMantenimiento detallemantenimiento, @PathVariable int id) {
-		detallemantenimiento.setId_detalle_accion_mant(id);
+	@PutMapping("/accion/")
+	public int update_accion(@RequestBody DetalleMantenimiento detallemantenimiento) {
 		return detallemantenimientoService.update_accion(detallemantenimiento);
 	}
 	

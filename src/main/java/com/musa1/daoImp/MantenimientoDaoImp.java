@@ -57,14 +57,12 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 				.declareParameters(new SqlOutParameter("MANT", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
-<<<<<<< HEAD
 	@Override
 	public int update_estado(int ide) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
 	}
-=======
->>>>>>> dany2
+
 	public Map<String, Object> read_id_bus(String padron) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
@@ -97,14 +95,8 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
 	}
-<<<<<<< HEAD
-	
-=======
-	@Override
-	public int update_estado(int ide) {
-		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_VALID_MANT.SP_VALIDAR2_MANTENIMIENTO (?)",ide);
-	}
->>>>>>> dany2
+
+    
+
 }
 

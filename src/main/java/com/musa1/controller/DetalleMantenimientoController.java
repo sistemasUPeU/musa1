@@ -41,7 +41,10 @@ public class DetalleMantenimientoController {
 		return detallemantenimientoService.update_accion(detallemantenimiento);
 	}
 	
-	
+	@GetMapping("/1/")
+	public Map<String, Object> getMan(){
+		return detallemantenimientoService.read();
+	}
 	
 	
 }

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
-/*@Configuration
+/*
+@Configuration
 @EnableWebSecurity
 public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
@@ -37,7 +37,7 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 		.anyRequest()
 		.authenticated()
 		.and()
-        .formLogin().loginPage("http://localhost:4200/login").permitAll()
+        .formLogin().loginPage("/login").permitAll()
         .and()
         .logout().permitAll()
 		.and()

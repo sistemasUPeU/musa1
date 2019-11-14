@@ -21,7 +21,7 @@ import com.musa1.service.VinculacionRequisitoService;
 import com.musa1.service.VinculacionService;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/vinculacion")
 @RestController
 public class VinculacionController {
@@ -34,14 +34,14 @@ public class VinculacionController {
 	
 	@GetMapping("/")
 	public int jorge() {
-		return 1;
+		return 1;	
 	}
 
 	@GetMapping("/conductor")
 	public Map<String, Object> getVinculacionConductor() {
 		return vinculacionService.readVinculacionConductor();
 	}
-	@PostMapping("/addvc")
+	@PostMapping("/addvc")	
 	public int createVinculacionConductor(@RequestBody Vinculacion vinculacion) {
 		int idv = (int)vinculacionService.createVinculacionConductor(vinculacion).get("idv");
 		return idv;

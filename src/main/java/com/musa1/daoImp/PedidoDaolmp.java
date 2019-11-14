@@ -59,6 +59,11 @@ public class PedidoDaolmp implements PedidoDao{
 		
 		return simpleJdbcCall.execute();
 	}
-
+	
+	@Override
+	public int update_pedido(Pedido pedido) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_DETALLE_PEDIDO.sp_actualizar_estado (?,?)",pedido.getId_pedido(), pedido.getEstado());
+	}
 	
 }

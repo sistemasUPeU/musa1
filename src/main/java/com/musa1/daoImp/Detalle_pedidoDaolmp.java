@@ -67,10 +67,4 @@ public class Detalle_pedidoDaolmp implements Detalle_pedidoDao{
 		return simpleJdbcCall.execute(in);
 	}
 	
-	@Override
-	public int updatestate(int id) {
-		System.out.println(id);
-		return jdbcTemplate.update("call PKG_DETALLE_PEDIDO.sp_actualizar_estado(?)", id);
-	}
-
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.musa1.dao.BusDao;
 import com.musa1.entity.Bus;
+import com.musa1.entity.VinculacionRequisito;
 import com.musa1.service.BusService;
 
 @Service
@@ -42,6 +43,12 @@ public class BusServiceImp implements BusService{
 	public Map<String, Object> readAll() {
 		// TODO Auto-generated method stub
 		return busDao.readAll();
+	}
+
+	@Override
+	public int createVin(VinculacionRequisito vr) {
+		// TODO Auto-generated method stub
+		return busDao.createVin(vr);
 	}
 
 }

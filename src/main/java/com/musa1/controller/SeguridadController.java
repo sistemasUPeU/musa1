@@ -15,7 +15,7 @@ import com.musa1.entity.Usuario;
 import com.musa1.entity.UsuarioRol;
 import com.musa1.service.SeguridadService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/seguridad")
 

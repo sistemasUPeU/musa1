@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.musa1.dao.BusDao;
 import com.musa1.entity.Bus;
+import com.musa1.entity.VinculacionRequisito;
 
 import oracle.jdbc.OracleTypes;
 
@@ -60,6 +61,12 @@ public class BusDaoImp implements BusDao{
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READADLL_BUS").withCatalogName("pkg_crud_bus")
 				.declareParameters(new SqlOutParameter("b", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public int createVin(VinculacionRequisito vr) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call pkg_crud_bus.SP_INSERT_VINCUREQUE(?,?,?,?)",vr.getUrl(),vr.getEstado(),vr.getId_vinculacion(),vr.getId_requisito(),vr.getFecha_vencimiento_doc());
 	}
 	
 }

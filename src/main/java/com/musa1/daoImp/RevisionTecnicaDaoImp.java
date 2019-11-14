@@ -27,14 +27,14 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 	@Override
 	public int create(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_INSERTAR_REVISION_TECNICA(?,?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getUrl(),revisiontecnica.getObservacion(),revisiontecnica.getId_bus());
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_INSERTAR_REVISION_TECNICA(?,?,?,?,?,?)",revisiontecnica.getFecha(),revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getObservacion(),revisiontecnica.getId_bus());
 	}
 
 	@Override
 	public int edit(RevisionTecnica revisiontecnica) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_MODIFICAR_REVISION_TECNICA(?,?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),
-				revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),revisiontecnica.getUrl(),
+		return jdbcTemplate.update("call PKG_CRUD_REVISION_TECNICA.SP_MODIFICAR_REVISION_TECNICA(?,?,?,?,?,?,?)",revisiontecnica.getId_revision_tecnica(),revisiontecnica.getFecha(),
+				revisiontecnica.getEmpresa_de_revision(),revisiontecnica.getResultado_inspeccion(),revisiontecnica.getFecha_vigencia(),
 				revisiontecnica.getObservacion(),revisiontecnica.getId_bus());
 	}
 	
@@ -72,4 +72,5 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 		return simpleJdbcCall.execute(in);
 	}
 
+ 
 }

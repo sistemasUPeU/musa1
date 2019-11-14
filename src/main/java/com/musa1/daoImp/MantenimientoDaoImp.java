@@ -85,14 +85,20 @@ public class MantenimientoDaoImp implements MantenimientoDao{
 	@Override
 	public Map<String, Object> readAllVal2() {
 		// TODO Auto-generated method stub
-		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_READ_MANTENIMIENTOS2").withCatalogName("PKG_VALID_MANT")
-				.declareParameters(new SqlOutParameter("mant", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_LISTA_MANTENIMIENTO2").withCatalogName("PKG_VALID_MANT")
+				.declareParameters(new SqlOutParameter("LISTA_MANTENIMIENTO", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
 	@Override
 	public int update_observacion(Mantenimiento mantenimiento) {
 		// TODO Auto-generated method stub
 		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_MODIFICAR_OBSERVACION (?,?)",mantenimiento.getId_mantenimiento(), mantenimiento.getObservacion());
+	}
+	
+	@Override
+	public int update_validar_1(Mantenimiento mantenimiento) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call PKG_CRUD_MANTENIMIENTO.SP_UPDATE_VALIDAR_1 (?,?)",mantenimiento.getId_mantenimiento(),mantenimiento.getEstado());	
 	}
 }
 

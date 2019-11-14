@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
 import com.musa1.dao.AsignarBusDao;
+import com.musa1.entity.AsignarBus;
+import com.musa1.entity.Curso;
 
 import oracle.jdbc.OracleTypes;
 
@@ -22,6 +24,16 @@ public class AsignarBusDaoImp implements AsignarBusDao{
 	@Autowired
 	private JdbcTemplate jdbc;
 	private SimpleJdbcCall call;
+	
+	
+	
+	
+	@Override
+	public int edit(AsignarBus ab) {
+		// TODO Auto-generated method stub
+		return jdbc.update("call pkg_asignar_bus.update_asignarbus(?,?,?,?,?)",ab.getId_detalle_bus_grupo(),ab.getFijo(),ab.getId_paradero(),ab.getId_bus(),ab.getId_orden_grupo());
+	}
+
 	
 	
 	@Override

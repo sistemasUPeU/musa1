@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.musa1.dao.AsignarBusDao;
+import com.musa1.entity.AsignarBus;
+
 import com.musa1.service.AsignarBusService;
 
 @Service
@@ -24,8 +26,11 @@ public class AsignarBusServiceImp implements AsignarBusService {
 	public Map<String, Object> readParadero() {
 		// TODO Auto-generated method stub
 		return dao.readParadero();
-	
+	}
 
-	
+	@Override
+	public int edit(AsignarBus ab) {
+		// TODO Auto-generated method stub
+		return dao.edit(ab);
 	}
 }

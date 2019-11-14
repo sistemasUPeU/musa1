@@ -17,7 +17,7 @@ import com.musa1.entity.Marca;
 import com.musa1.service.MarcaService;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/marca")
 public class MarcaController {

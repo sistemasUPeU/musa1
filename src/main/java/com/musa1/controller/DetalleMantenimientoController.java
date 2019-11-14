@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.musa1.entity.DetalleMantenimiento;
 import com.musa1.service.DetalleMantenimientoService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/detalle_mantenimiento")
 public class DetalleMantenimientoController {

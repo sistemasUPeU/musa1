@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.Categoria;
 import com.musa1.service.CategoriaService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaController {

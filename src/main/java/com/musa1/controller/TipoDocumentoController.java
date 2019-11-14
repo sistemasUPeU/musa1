@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musa1.entity.TipoDocumento;
 import com.musa1.service.TipoDocumentoService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/tipoDocumento")
 public class TipoDocumentoController {

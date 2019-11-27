@@ -66,10 +66,10 @@ public class RequisitoDaoImp implements RequisitoDao{
 	@Override
 	public Map<String, Object> readRequisitoConductor() {
 		// TODO Auto-generated method stub
-		call = new SimpleJdbcCall(jdbc)
-				.withProcedureName("SP_REQUISITO_CONDUCTOR").withCatalogName("pkg_crud_requisito")
-				.declareParameters(new SqlOutParameter("req", OracleTypes.CURSOR, new ColumnMapRowMapper()));
-		return call.execute();
+		call = new SimpleJdbcCall(jdbc).withProcedureName("sp_listar_requisito_tipo").withCatalogName("pkg_crud_requisito")
+				.declareParameters(new SqlParameter("tr", Types.VARCHAR), new SqlOutParameter("reqs", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		SqlParameterSource in = new MapSqlParameterSource().addValue("tr", "Conductor");
+		return call.execute(in);
 	}
 
 	@Override

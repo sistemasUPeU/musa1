@@ -11,5 +11,5 @@ public interface RevisionTecnicaDao {
 	public Map<String, Object> read(int id);
 	public Map<String, Object> readAll();
 	public Map<String, Object> read_id_bus(String placa);
-	public Map<String, Object> buscar(); 
+	 Map<String, Object> buscar(String placa); 
 }

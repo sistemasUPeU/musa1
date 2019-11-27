@@ -72,5 +72,14 @@ public class RevisionTecnicaDaoImp implements RevisionTecnicaDao {
 		return simpleJdbcCall.execute(in);
 	}
 
+	@Override
+	public Map<String, Object> buscar(String placa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
  
 }

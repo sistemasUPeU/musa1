@@ -41,9 +41,15 @@ public class CronogramaServiceImp implements CronogramaService {
 	}
 
 	@Override
-	public Map<String, Object> readAll(int paradero, int periodo) {
+	public Map<String, Object> readAll( int periodo) {
 		// TODO Auto-generated method stub
-		return cronogramaDao.readAll(paradero, periodo);
+		return cronogramaDao.readAll(periodo);
+	}
+
+	@Override
+	public Map<String, Object> readAllC(int periodo) {
+		// TODO Auto-generated method stub
+		return cronogramaDao.readAllC(periodo);
 	}
 
 }

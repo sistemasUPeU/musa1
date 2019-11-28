@@ -29,7 +29,7 @@ public class GrupoDaoImp implements GrupoDao {
 	@Override
 	public int create(Grupo g) {
 		// TODO Auto-generated method stub
-		System.out.println("mes:" + g.getId_mes());
+		System.out.println("mes:" + g.getId_mes() + " " +  g.getNumero() + " " + g.getCantidad_buses() + " " + g.getHora_inicio() +  " " +  g.getIntervalo());
 		return jdbcTemplate.update("call pkg_crud_grupo.sp_insertgrupo(?,?,?,?,?)", g.getNumero(), g.getCantidad_buses(), g.getHora_inicio(), g.getIntervalo(), g.getId_mes());
 	}
 	

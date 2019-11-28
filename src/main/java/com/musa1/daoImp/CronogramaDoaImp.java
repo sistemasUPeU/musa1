@@ -29,7 +29,9 @@ public class CronogramaDoaImp implements CronogramaDao {
 	@Override
 	public int createcrono() {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_cronograma_bus.sp_generar_crono");
+		 String A = "a";
+		System.out.println("Se genera el crono?");
+		return jdbcTemplate.update("call pkg_cronograma_bus.sp_generar_crono(?)", A);
 	}
 
 	@Override
@@ -42,6 +44,9 @@ public class CronogramaDoaImp implements CronogramaDao {
 	@Override
 	public int create(CronogramaBus cb) {
 		// TODO Auto-generated method stub
+		String el = "a";
+		jdbcTemplate.update(" call sp_eliminar(?)", el);
+		System.out.println("primeoro");
 		return jdbcTemplate.update("call pkg_cronograma_bus.sp_insert_crono(?)", cb.getId_mes());
 	}
 	
@@ -57,15 +62,26 @@ public class CronogramaDoaImp implements CronogramaDao {
 	
 	
 	@Override
-	public Map<String, Object> readAll(int paradero, int periodo) {
+	public Map<String, Object> readAll( int periodo) {
 		// TODO Auto-generated method stub
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_listar").withCatalogName("pkg_cronograma_bus")
 				.declareParameters(new SqlOutParameter("lis_cro", OracleTypes.CURSOR, new ColumnMapRowMapper()), 
-				new SqlParameter("para", Types.INTEGER), new SqlParameter("periodo", Types.INTEGER));
-		SqlParameterSource in = new MapSqlParameterSource().addValue("para", paradero);
-		SqlParameterSource ini = new MapSqlParameterSource().addValue("periodo", periodo);
+						new SqlParameter("periodo", Types.INTEGER));
+		//SqlParameterSource in = new MapSqlParameterSource().addValue("para", paradero);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("periodo", periodo);
 		
-		return simpleJdbcCall.execute(in, ini);
+		return simpleJdbcCall.execute(in);
+	}
+
+	@Override
+	public Map<String, Object> readAllC(int periodo) {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("sp_listarC").withCatalogName("pkg_cronograma_bus")
+				.declareParameters(new SqlOutParameter("lis_croci", OracleTypes.CURSOR, new ColumnMapRowMapper()), 
+						new SqlParameter("periodo", Types.INTEGER));
+		//SqlParameterSource in = new MapSqlParameterSource().addValue("para", paradero);
+		SqlParameterSource in = new MapSqlParameterSource().addValue("periodo", periodo);
+		return simpleJdbcCall.execute(in);
 	}
 
 }

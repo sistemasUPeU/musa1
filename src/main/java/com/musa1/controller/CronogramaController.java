@@ -29,9 +29,14 @@ public class CronogramaController {
 	}
 	
 	
-	@GetMapping("/{para}/{peri}")
-	public Map<String, Object> getcrono(@PathVariable  int para, @PathVariable int peri) {
-		return cronogramaService.readAll(para, peri);
+	@GetMapping("/{peri}")
+	public Map<String, Object> getcrono( @PathVariable int peri) {
+		return cronogramaService.readAll(peri);
+	}
+	
+	@GetMapping("/C/{peri}")
+	public Map<String, Object> getcronoC( @PathVariable int peri) {
+		return cronogramaService.readAllC(peri);
 	}
 	
 	

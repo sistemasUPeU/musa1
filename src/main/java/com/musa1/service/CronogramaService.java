@@ -10,6 +10,7 @@ public interface CronogramaService {
 	public int update(Periodo p );
 	public int create ( CronogramaBus cb);
 	Map<String, Object> readperido ();
-	Map<String, Object> readAll(int paradero , int periodo );
+	Map<String, Object> readAll( int periodo );
+	Map<String, Object> readAllC( int periodo );
 	
 }

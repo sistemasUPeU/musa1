@@ -40,7 +40,7 @@ public class AsignarBusController {
 
 	@PutMapping("/{id}")
 	public int update(@RequestBody AsignarBus ab, @PathVariable int id) {
-		ab.setId_detalle_bus_grupo(id);
+		ab.setId_bus(id);;
 		return service.edit(ab);
 	}
 

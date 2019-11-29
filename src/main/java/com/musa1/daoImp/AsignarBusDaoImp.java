@@ -34,6 +34,7 @@ public class AsignarBusDaoImp implements AsignarBusDao{
 	@Override
 	public int edit(AsignarBus ab) {
 		// TODO Auto-generated method stub
+		//System.out.println("estoy llegando " + ab.getId_bus());
 		return jdbc.update("call pkg_asignar_bus.update_asignarbus(?,?,?,?)",ab.getFijo(),ab.getId_paradero(),ab.getId_bus(),ab.getId_orden_grupo());
 	}
 

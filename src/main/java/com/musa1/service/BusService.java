@@ -12,4 +12,5 @@ public interface BusService {
 	public Map<String, Object> read(String placa);
 	public Map<String, Object> readAll();
 	public int createVin(VinculacionRequisito vr);
+	public Map<String, Object> read2();
 }

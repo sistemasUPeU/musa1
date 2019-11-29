@@ -43,6 +43,12 @@ public class BusController {
 		return busService.readAll();
 	}
 	
+	@GetMapping("/buscar2")
+	public Map<String, Object> get2(){
+		return busService.read2();
+	}
+	
+	
 	@PostMapping("/addVin")
 	public int agregarvin(@RequestBody VinculacionRequisito v) {
 		return busService.createVin(v);

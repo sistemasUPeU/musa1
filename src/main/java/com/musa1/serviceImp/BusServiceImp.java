@@ -51,4 +51,10 @@ public class BusServiceImp implements BusService{
 		return busDao.createVin(vr);
 	}
 
+	@Override
+	public Map<String, Object> read2() {
+		// TODO Auto-generated method stub
+		return busDao.read2();
+	}
+
 }

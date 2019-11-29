@@ -66,7 +66,15 @@ public class BusDaoImp implements BusDao{
 	@Override
 	public int createVin(VinculacionRequisito vr) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pkg_crud_bus.SP_INSERT_VINCUREQUE(?,?,?,?)",vr.getUrl(),vr.getEstado(),vr.getId_vinculacion(),vr.getId_requisito(),vr.getFecha_vencimiento_doc());
+		return jdbcTemplate.update("call pkg_crud_bus.SP_INSERT_VINCUREQUE(?,?,?,?,?)",vr.getUrl(),vr.getEstado(),vr.getId_vinculacion(),vr.getId_requisito(),vr.getFecha_vencimiento_doc());
+	}
+
+	@Override
+	public Map<String, Object> read2() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_LISTAR_R").withCatalogName("pkg_crud_bus")
+				.declareParameters(new SqlOutParameter("tr", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
 	}
 	
 }

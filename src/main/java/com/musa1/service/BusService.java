@@ -13,4 +13,6 @@ public interface BusService {
 	public Map<String, Object> readAll();
 	public int createVin(VinculacionRequisito vr);
 	public Map<String, Object> read2();
+	public Map<String, Object> STC();
+	public int delete2(int vr);
 }

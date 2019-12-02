@@ -76,5 +76,19 @@ public class BusDaoImp implements BusDao{
 				.declareParameters(new SqlOutParameter("tr", OracleTypes.CURSOR, new ColumnMapRowMapper()));
 		return simpleJdbcCall.execute();
 	}
+
+	@Override
+	public Map<String, Object> STC() {
+		// TODO Auto-generated method stub
+		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_LISTAR_STC").withCatalogName("pkg_crud_bus")
+				.declareParameters(new SqlOutParameter("STC", OracleTypes.CURSOR, new ColumnMapRowMapper()));
+		return simpleJdbcCall.execute();
+	}
+
+	@Override
+	public int delete2(int vr) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.update("call pkg_crud_bus.SP_DELETE_STC(?)",vr);
+	}
 	
 }

@@ -57,4 +57,16 @@ public class BusServiceImp implements BusService{
 		return busDao.read2();
 	}
 
+	@Override
+	public Map<String, Object> STC() {
+		// TODO Auto-generated method stub
+		return busDao.STC();
+	}
+
+	@Override
+	public int delete2(int vr) {
+		// TODO Auto-generated method stub
+		return busDao.delete2(vr);
+	}
+
 }

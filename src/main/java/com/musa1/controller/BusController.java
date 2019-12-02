@@ -64,6 +64,11 @@ public class BusController {
 		return busService.delete(id);
 	}
 	
+	@DeleteMapping("/stc/{vr}")
+	public int delete2(@PathVariable int vr) {
+		return busService.delete2(vr);
+	}
+	
 	@GetMapping("/{placa}")
 	public Map<String, Object> read(@PathVariable String placa){
 		return busService.read(placa);
@@ -118,6 +123,9 @@ public class BusController {
 		
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
-	
+	@GetMapping("/STC")
+	public Map<String, Object> get3(){
+		return busService.STC();
+	}
 }
 
